@@ -1,0 +1,34 @@
+{
+  "name": "babel-deno",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "transpile": "gulp",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@types/babel__core": "^7.1.7",
+    "@types/gulp": "^4.0.6",
+    "@types/gulp-babel": "^6.1.29",
+    "@types/gulp-plumber": "^0.0.32",
+    "@types/gulp-rename": "^0.0.33",
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.13.5",
+    "eslint": "^7.0.0",
+    "eslint-config-fox": "^0.1.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^2.0.0",
+    "jest": "25",
+    "lerna": "^3.20.2",
+    "ts-jest": "^25.5.1",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.8.3"
+  }
+}

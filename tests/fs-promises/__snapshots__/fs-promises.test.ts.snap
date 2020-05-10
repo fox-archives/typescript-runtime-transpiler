@@ -1,0 +1,300 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`first test 1`] = `
+"import fs from 'fs';
+
+(async () => {
+  await Deno.readFile('./file');
+})();"
+`;
+
+exports[`first test 2`] = `
+Node {
+  "comments": Array [],
+  "end": 80,
+  "errors": Array [],
+  "innerComments": undefined,
+  "leadingComments": undefined,
+  "loc": SourceLocation {
+    "end": Position {
+      "column": 0,
+      "line": 6,
+    },
+    "start": Position {
+      "column": 0,
+      "line": 1,
+    },
+  },
+  "program": Node {
+    "body": Array [
+      Node {
+        "end": 19,
+        "innerComments": undefined,
+        "leadingComments": undefined,
+        "loc": SourceLocation {
+          "end": Position {
+            "column": 19,
+            "line": 1,
+          },
+          "start": Position {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "source": Node {
+          "end": 19,
+          "extra": Object {
+            "raw": "'fs'",
+            "rawValue": "fs",
+          },
+          "innerComments": undefined,
+          "leadingComments": undefined,
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 19,
+              "line": 1,
+            },
+            "start": Position {
+              "column": 15,
+              "line": 1,
+            },
+          },
+          "start": 15,
+          "trailingComments": undefined,
+          "type": "StringLiteral",
+          "value": "fs",
+        },
+        "specifiers": Array [
+          Node {
+            "end": 9,
+            "innerComments": undefined,
+            "leadingComments": undefined,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 9,
+                "line": 1,
+              },
+              "start": Position {
+                "column": 7,
+                "line": 1,
+              },
+            },
+            "local": Node {
+              "end": 9,
+              "innerComments": undefined,
+              "leadingComments": undefined,
+              "loc": SourceLocation {
+                "end": Position {
+                  "column": 9,
+                  "line": 1,
+                },
+                "identifierName": "fs",
+                "start": Position {
+                  "column": 7,
+                  "line": 1,
+                },
+              },
+              "name": "fs",
+              "start": 7,
+              "trailingComments": undefined,
+              "type": "Identifier",
+            },
+            "start": 7,
+            "trailingComments": undefined,
+            "type": "ImportDefaultSpecifier",
+          },
+        ],
+        "start": 0,
+        "trailingComments": undefined,
+        "type": "ImportDeclaration",
+      },
+      Node {
+        "end": 79,
+        "expression": Node {
+          "arguments": Array [],
+          "callee": Node {
+            "async": true,
+            "body": Node {
+              "body": Array [
+                Node {
+                  "end": 74,
+                  "expression": Node {
+                    "argument": Object {
+                      "arguments": Array [
+                        Node {
+                          "end": 73,
+                          "extra": Object {
+                            "raw": "'./file'",
+                            "rawValue": "./file",
+                          },
+                          "innerComments": undefined,
+                          "leadingComments": undefined,
+                          "loc": SourceLocation {
+                            "end": Position {
+                              "column": 37,
+                              "line": 4,
+                            },
+                            "start": Position {
+                              "column": 29,
+                              "line": 4,
+                            },
+                          },
+                          "start": 65,
+                          "trailingComments": undefined,
+                          "type": "StringLiteral",
+                          "value": "./file",
+                        },
+                      ],
+                      "callee": Object {
+                        "computed": false,
+                        "object": Object {
+                          "name": "Deno",
+                          "type": "Identifier",
+                        },
+                        "optional": null,
+                        "property": Object {
+                          "name": "readFile",
+                          "type": "Identifier",
+                        },
+                        "type": "MemberExpression",
+                      },
+                      "innerComments": Array [],
+                      "leadingComments": Array [],
+                      "trailingComments": Array [],
+                      "type": "CallExpression",
+                    },
+                    "end": 74,
+                    "innerComments": undefined,
+                    "leadingComments": undefined,
+                    "loc": SourceLocation {
+                      "end": Position {
+                        "column": 38,
+                        "line": 4,
+                      },
+                      "start": Position {
+                        "column": 2,
+                        "line": 4,
+                      },
+                    },
+                    "start": 38,
+                    "trailingComments": undefined,
+                    "type": "AwaitExpression",
+                  },
+                  "innerComments": undefined,
+                  "leadingComments": undefined,
+                  "loc": SourceLocation {
+                    "end": Position {
+                      "column": 38,
+                      "line": 4,
+                    },
+                    "start": Position {
+                      "column": 2,
+                      "line": 4,
+                    },
+                  },
+                  "start": 38,
+                  "trailingComments": undefined,
+                  "type": "ExpressionStatement",
+                },
+              ],
+              "directives": Array [],
+              "end": 76,
+              "innerComments": undefined,
+              "leadingComments": undefined,
+              "loc": SourceLocation {
+                "end": Position {
+                  "column": 1,
+                  "line": 5,
+                },
+                "start": Position {
+                  "column": 13,
+                  "line": 3,
+                },
+              },
+              "start": 34,
+              "trailingComments": undefined,
+              "type": "BlockStatement",
+            },
+            "end": 76,
+            "extra": Object {
+              "parenStart": 21,
+              "parenthesized": true,
+            },
+            "generator": false,
+            "id": null,
+            "innerComments": undefined,
+            "leadingComments": undefined,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 1,
+                "line": 5,
+              },
+              "start": Position {
+                "column": 1,
+                "line": 3,
+              },
+            },
+            "params": Array [],
+            "start": 22,
+            "trailingComments": undefined,
+            "type": "ArrowFunctionExpression",
+          },
+          "end": 79,
+          "innerComments": undefined,
+          "leadingComments": undefined,
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 4,
+              "line": 5,
+            },
+            "start": Position {
+              "column": 0,
+              "line": 3,
+            },
+          },
+          "start": 21,
+          "trailingComments": undefined,
+          "type": "CallExpression",
+        },
+        "innerComments": undefined,
+        "leadingComments": undefined,
+        "loc": SourceLocation {
+          "end": Position {
+            "column": 4,
+            "line": 5,
+          },
+          "start": Position {
+            "column": 0,
+            "line": 3,
+          },
+        },
+        "start": 21,
+        "trailingComments": undefined,
+        "type": "ExpressionStatement",
+      },
+    ],
+    "directives": Array [],
+    "end": 80,
+    "innerComments": undefined,
+    "interpreter": null,
+    "leadingComments": undefined,
+    "loc": SourceLocation {
+      "end": Position {
+        "column": 0,
+        "line": 6,
+      },
+      "start": Position {
+        "column": 0,
+        "line": 1,
+      },
+    },
+    "sourceType": "module",
+    "start": 0,
+    "trailingComments": undefined,
+    "type": "Program",
+  },
+  "start": 0,
+  "trailingComments": undefined,
+  "type": "File",
+}
+`;

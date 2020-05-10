@@ -1,0 +1,17 @@
+{
+  "name": "babel-preset-deno",
+  "version": "0.0.1",
+  "description": "Babel preset to transpile NodeJS API calls to their respective Deno equivalents",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "babel",
+    "babel-preset",
+    "deno",
+    "typescript"
+  ],
+  "author": "Edwin Kofler",
+  "license": "MIT"
+}
