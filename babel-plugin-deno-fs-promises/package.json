@@ -8,13 +8,17 @@
   },
   "scripts": {
     "start": "node-ts src",
-    "build": "tsc"
+    "build": "tsc",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "jest": "^26.0.1",
     "node-ts": "^5.0.5",
-    "typescript": "^3.8.3"
+    "ts-jest": "^25.5.1",
+    "typescript": "^3.9.2"
   }
 }

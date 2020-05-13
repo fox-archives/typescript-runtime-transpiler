@@ -1,6 +1,4 @@
-// TODO types
-
-function isPromisesReadFile(callee: any): boolean {
+function isPromisesReadFile(callee) {
   if (callee.type !== 'MemberExpression') return false
 
   if(callee.object.property?.name === 'Deno') return false
@@ -12,7 +10,7 @@ function isPromisesReadFile(callee: any): boolean {
   return false
 }
 
-export default function declare(api: any, options: any) {
+export default function declare(api, options) {
   api.assertVersion(7)
 
   const { types: t } = api
@@ -20,7 +18,15 @@ export default function declare(api: any, options: any) {
   return {
     name: 'babel-plugin-deno-fs',
     visitor: {
-      CallExpression(path: any) {
+      ImportDeclaration(path, state) {
+        const { node } = path
+        const { source } = node
+
+        if (new Set(['fs']).has(source?.value)) {
+          path.remove()
+        }
+      },
+      CallExpression(path) {
         const { node } = path
 
 
@@ -28,7 +34,7 @@ export default function declare(api: any, options: any) {
 
         path.replaceWith(
           t.callExpression(
-            t.memberExpression(t.identifier('Deno'), t.identifier('readFile')),
+            t.memberExpression(t.identifier('Deno'), t.identifier('readTextFile')),
             node.arguments
           )
 
