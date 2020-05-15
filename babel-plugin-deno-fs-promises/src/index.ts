@@ -1,10 +1,12 @@
 type param = string | number | boolean | object
 
 /**
- * @desc converts babel ast nested MemberExpressions to flat array
+ * @desc this flattens the 'likeMemberExpressionChain' i.e. the nested
+ * MemberExpressions (nested in the first parameter) including the Identifier at the
+ * end of the chain
  * @params {MemberExpression}
  */
-function unnestMemberExpressions(parentMemberExpression): Array<string> {
+function flattenLikeMemberExpressionChain(parentMemberExpression): Array<string> {
   // this really is an array of 'properties' of those memberExpression
   const memberExpressionArray: Array<string> = []
 
@@ -38,48 +40,6 @@ function unnestMemberExpressions(parentMemberExpression): Array<string> {
   return memberExpressionArray
 }
 
-/**
- * does the mested MemberExpression equivalent
- * (ex. 'fs.promises.readFile')
- */
-function matchesApiCall(referenceApiCall: Array<string>, apiCall: string): boolean {
-  const apiCallRepresentation: Array<string> = apiCall.split('.')
-
-  if (referenceApiCall.length !== apiCallRepresentation.length) return false
-
-  let doesMatch = true
-  ensuringApiCallsAreTheSame: for(let i = 0; i < referenceApiCall.length; ++i) {
-    const referenceLikeIdentifier = referenceApiCall[i]
-    const userInputIdentifier = apiCallRepresentation[i]
-
-    if (referenceLikeIdentifier !== userInputIdentifier) {
-      doesMatch = false
-      break ensuringApiCallsAreTheSame
-    }
-  }
-
-  return doesMatch
-}
-
-function getApiCall(node: any) {
-  if (node.type !== 'CallExpression') return
-
-  const apiCallArray = unnestMemberExpressions(node.callee)
-  const doesMatch = matchesApiCall(apiCallArray, 'fs.promises.readFile')
-}
-
-function isPromisesReadFile(callee) {
-  if (callee.type !== 'MemberExpression') return false
-
-  if(callee.object.property?.name === 'Deno') return false
-
-  if (callee.property?.name === 'readFile' &&
-    callee.object.property?.name === 'promises' &&
-    callee.object.object?.name === 'fs'
-  ) return true
-  return false
-}
-
 export default function declare(api, options) {
   api.assertVersion(7)
 
@@ -107,12 +67,9 @@ export default function declare(api, options) {
         // ex. could be ArrowFunctionExpression etc. Ensure it's not
         if (node.callee.type !== 'MemberExpression') return
 
+        const likeMemberExpressionChain = flattenLikeMemberExpressionChain(node.callee)
 
-        // if (!isPromisesReadFile(node.callee)) return
-
-        const likeMemberExpressionChain = unnestMemberExpressions(node.callee)
-
-        if (matchesApiCall(likeMemberExpressionChain, 'fs.promises.readFile')) {
+        if (likeMemberExpressionChain.join('.') === 'fs.promises.readFile') {
           path.replaceWith(
             t.callExpression(
               t.memberExpression(t.identifier('Deno'), t.identifier('readTextFile')),

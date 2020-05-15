@@ -1,5 +1,5 @@
 (async () => {
-  const contents = await Deno.re3adTextFile('./file', {
+  const contents = await Deno.readTextFile('./file', {
     encoding: 'utf8'
   });
   console.log(contents);
