@@ -17,7 +17,7 @@ async function transpile() {
   })
   await writeDenoFile('first', code)
 }
-(async () => await transpile())()
+
 
 async function nodeRun(file): Promise<{
   stdout: string
@@ -44,5 +44,8 @@ async function denoRun(file: string): Promise<{
 }
 
 test('outputs are equal', async () => {
-  expect((await nodeRun('first')).stdout).toBe((await denoRun('first')).stdout)
+  // expect((await nodeRun('first')).stdout).toBe((await denoRun('first')).stdout)
+  await transpile()
+
+  expect(false).toBe(true)
 })
