@@ -76,6 +76,25 @@ export default function declare(api, options) {
               node.arguments
             )
           )
+          return
+        }
+        if (likeMemberExpressionChain.join('.') === 'fs.promises.chmod') {
+          path.replaceWith(
+            t.callExpression(
+              t.memberExpression(t.identifier('Deno'), t.identifier('chmod')),
+              node.arguments
+            )
+          )
+          return
+        }
+        if (likeMemberExpressionChain.join('.') === 'fs.promises.chown') {
+          path.replaceWith(
+            t.callExpression(
+              t.memberExpression(t.identifier('Deno'), t.identifier('copyFile')),
+              node.arguments
+            )
+          )
+          return
         }
       }
     }

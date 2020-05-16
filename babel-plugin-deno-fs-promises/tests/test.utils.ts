@@ -70,9 +70,22 @@ export async function denoRun(fileName: string): Promise<{
   stderr: string
 }> {
   const scriptPath = path.join(__dirname, 'fixtures', `${fileName}.deno.js`)
-  const { stdout, stderr } = await exec(`deno run --allow-read ${scriptPath}`, {
+  const { stdout, stderr } = await exec(`deno run -A ${scriptPath}`, {
     cwd: path.join(__dirname, 'fixtures'),
     windowsHide: true
   })
   return { stdout, stderr }
+}
+
+/**
+ * @desc gets all files ending in .mjs and returns their fileNames (
+ * without the prefix)
+ */
+export function getNodeFiles() {
+  const fixtureFolder = path.join(__dirname, 'fixtures')
+  const fixtureFiles = fs.readdirSync(fixtureFolder, { withFileTypes: true })
+  return fixtureFiles
+    .filter(dirent => dirent.isDirectory)
+    .filter(dirent => dirent.name.includes(".mjs"))
+    .map(dirent => dirent.name.slice(0, -4))
 }
