@@ -1,5 +1,4 @@
-import { ApiCall } from "./ApiCall"
-import { callExpressionFactory } from './BabelFactories';
+import { callExpressionFactory, ApiCall } from 'babel-deno-helpers';
 
 type param = string | number | boolean | object
 
