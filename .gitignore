@@ -3,3 +3,7 @@ node_modules/
 
 # etc
 *.log
+
+# build
+build/
+dist/

@@ -48,7 +48,7 @@ importers:
     specifiers: {}
   babel-plugin-deno-fs-promises:
     dependencies:
-      babel-deno-helpers: 'link:../babel-deno-helpers'
+      babel-helper-deno-general: 'link:../babel-helper-deno-general'
     devDependencies:
       '@babel/core': 7.9.6
       '@babel/types': 7.9.6
@@ -65,7 +65,7 @@ importers:
       '@types/babel__core': ^7.1.7
       '@types/jest': ^25.2.2
       '@types/node': ^14.0.1
-      babel-deno-helpers: 'workspace:^0.1.0'
+      babel-helper-deno-general: 'workspace:^0.0.1'
       jest: ^26.0.1
       node-ts: ^5.0.5
       ts-jest: ^26.0.0

@@ -2,18 +2,15 @@
   "name": "babel-plugin-deno-fs-promises",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
+  "main": "build/index.js",
   "scripts": {
     "start": "node-ts src",
     "build": "tsc",
     "test": "jest"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Edwin Kofler",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/types": "^7.9.6",
@@ -26,6 +23,6 @@
     "typescript": "^3.9.2"
   },
   "dependencies": {
-    "babel-deno-helpers": "^0.0.1"
+    "babel-helper-deno-general": "^0.0.1"
   }
 }
