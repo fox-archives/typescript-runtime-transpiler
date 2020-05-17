@@ -1,5 +1,6 @@
 devDependencies:
   '@babel/core': 7.9.6
+  '@babel/types': 7.9.6
   '@types/babel__core': 7.1.7
   '@types/jest': 25.2.2
   '@types/node': 14.0.1
@@ -3874,6 +3875,7 @@ packages:
       integrity: sha512-92O1HWEjw27sBfgmXiixJWT5hRBp2eobqXicLtPBIDBhYB+1HpwZlXmbW2luivBJHBzki+7VyCLRtAkScbTBQA==
 specifiers:
   '@babel/core': ^7.9.6
+  '@babel/types': ^7.9.6
   '@types/babel__core': ^7.1.7
   '@types/jest': ^25.2.2
   '@types/node': ^14.0.1

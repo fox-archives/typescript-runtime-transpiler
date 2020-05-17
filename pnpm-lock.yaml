@@ -1,5 +1,6 @@
 devDependencies:
   '@babel/core': 7.9.6
+  '@types/babel-types': 7.0.7
   '@types/babel__core': 7.1.7
   '@types/gulp': 4.0.6
   '@types/gulp-babel': 6.1.29
@@ -1407,6 +1408,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-+DUO6pnp3udV/v2VfUWgaY5BIE1IfT7lLfeDzPVeMT1XKkaAp9LgSI9x5RtrFQoZ9Oi0PgXQQHPaoKu7dCjVxw==
+  /@types/babel-types/7.0.7:
+    dev: true
+    resolution:
+      integrity: sha512-dBtBbrc+qTHy1WdfHYjBwRln4+LWqASWakLHsWHR2NWHIFkv4W3O070IGoGLEBrJBvct3r0L1BUPuvURi7kYUQ==
   /@types/babel__core/7.1.7:
     dependencies:
       '@babel/parser': 7.9.6
@@ -9113,6 +9118,7 @@ packages:
       integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==
 specifiers:
   '@babel/core': ^7.9.6
+  '@types/babel-types': ^7.0.7
   '@types/babel__core': ^7.1.7
   '@types/gulp': ^4.0.6
   '@types/gulp-babel': ^6.1.29

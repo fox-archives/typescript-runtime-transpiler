@@ -12,6 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.9.6",
+    "@types/babel-types": "^7.0.7",
     "@types/babel__core": "^7.1.7",
     "@types/gulp": "^4.0.6",
     "@types/gulp-babel": "^6.1.29",

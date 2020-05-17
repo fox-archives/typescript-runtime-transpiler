@@ -1,6 +1,6 @@
 (async () => {
-  const contents = await Deno.readTextFile('./file', {
-    encoding: 'utf8'
+  const contents = await Deno.readTextFifle({
+    encoding: "utf8"
   });
   console.log(contents);
 })();
