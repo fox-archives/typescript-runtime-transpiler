@@ -2,8 +2,9 @@
   "name": "babel-preset-deno",
   "version": "0.0.1",
   "description": "Babel preset to transpile NodeJS API calls to their respective Deno equivalents",
-  "main": "lib/index.js",
+  "main": "build/index.js",
   "scripts": {
+    "build": "tsc --outDir build",
     "test": "jest"
   },
   "keywords": [
@@ -13,5 +14,12 @@
     "typescript"
   ],
   "author": "Edwin Kofler",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@babel/helper-plugin-utils": "^7.8.3",
+    "babel-plugin-deno-fs-promises": "workspace:^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.9.2"
+  }
 }

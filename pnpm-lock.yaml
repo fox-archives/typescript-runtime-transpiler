@@ -42,6 +42,10 @@ importers:
       ts-jest: ^25.5.1
       ts-node: ^8.10.1
       typescript: ^3.8.3
+  babel-deno-helper-test-runner:
+    specifiers: {}
+  babel-deno-helpers:
+    specifiers: {}
   babel-plugin-deno-fs-promises:
     dependencies:
       babel-deno-helpers: 'link:../babel-deno-helpers'
@@ -65,6 +69,16 @@ importers:
       jest: ^26.0.1
       node-ts: ^5.0.5
       ts-jest: ^26.0.0
+      typescript: ^3.9.2
+  babel-preset-deno:
+    dependencies:
+      '@babel/helper-plugin-utils': 7.8.3
+      babel-plugin-deno-fs-promises: 'link:../babel-plugin-deno-fs-promises'
+    devDependencies:
+      typescript: 3.9.2
+    specifiers:
+      '@babel/helper-plugin-utils': ^7.8.3
+      babel-plugin-deno-fs-promises: 'workspace:^1.0.0'
       typescript: ^3.9.2
 lockfileVersion: 5.1
 packages:
@@ -151,7 +165,6 @@ packages:
     resolution:
       integrity: sha512-Kag20n86cbO2AvHca6EJsvqAd82gc6VMGule4HwebwMlwkpXuVqrNRj6CkCV2sKxgi9MyAUnZVnZ6lJ1/vKhHQ==
   /@babel/helper-plugin-utils/7.8.3:
-    dev: true
     resolution:
       integrity: sha512-j+fq49Xds2smCUNYmEHF9kGNkhbet6yVIBp4e6oeQpH1RUs/Ir06xUKzDjDkGcaaokPiTNs2JBWHjaE4csUkZQ==
   /@babel/helper-replace-supers/7.9.6:
