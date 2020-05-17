@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-deno-fs-promises",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "directories": {
@@ -26,6 +26,6 @@
     "typescript": "^3.9.2"
   },
   "dependencies": {
-    "babel-deno-helpers": "^0.1.0"
+    "babel-deno-helpers": "^0.0.1"
   }
 }
