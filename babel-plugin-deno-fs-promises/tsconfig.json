@@ -12,12 +12,7 @@
     "noImplicitThis": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
-    "typeRoots": [
-      "./node_modules/@types",
-      "../node_modules@types"
-    ],
-    "lib": [
-      "ESNext"
-    ]
+    "typeRoots": ["./node_modules/@types", "../node_modules@types"],
+    "lib": ["ESNext"]
   }
 }

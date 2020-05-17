@@ -1,1 +1,1 @@
-{"packages":["*deno*","test"],"version":"0.1.0"}
+{ "packages": ["*deno*", "test"], "version": "0.1.0" }
