@@ -17,7 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "@babel/helper-plugin-utils": "^7.8.3",
-    "babel-plugin-deno-fs-promises": "workspace:^1.0.0"
+    "babel-plugin-deno-fs-promises": "^1.0.0"
   },
   "devDependencies": {
     "typescript": "^3.9.2"

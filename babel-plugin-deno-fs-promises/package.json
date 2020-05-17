@@ -26,6 +26,6 @@
     "typescript": "^3.9.2"
   },
   "dependencies": {
-    "babel-deno-helpers": "workspace:^0.1.0"
+    "babel-deno-helpers": "^0.1.0"
   }
 }
