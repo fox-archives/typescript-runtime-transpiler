@@ -1,5 +1,4 @@
 import fs from 'fs'
-
 ;(async () => {
   await fs.promises.chmod('chmod', mode)
 

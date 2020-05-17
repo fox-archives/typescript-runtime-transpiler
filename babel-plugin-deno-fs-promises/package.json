@@ -2,10 +2,9 @@
   "name": "babel-plugin-deno-fs-promises",
   "version": "0.1.0",
   "description": "",
-  "main": "build/index.js",
+  "main": "build",
   "scripts": {
-    "start": "node-ts src",
-    "build": "tsc",
+    "build": "tsc --outDir build",
     "test": "jest"
   },
   "keywords": [],

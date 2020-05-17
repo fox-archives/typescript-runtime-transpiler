@@ -10,7 +10,7 @@ export default function declare(api, options) {
 
   const { types: t } = api
   return {
-    name: 'babel-plugin-deno-fs',
+    name: 'babel-plugin-deno-fs-promises',
     visitor: {
       ImportDeclaration(path, state) {
         const { node } = path

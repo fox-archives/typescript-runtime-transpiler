@@ -2,8 +2,9 @@
   "name": "babel-helper-deno-test-runner",
   "version": "0.1.0",
   "description": "",
-  "main": "build/index.js",
+  "main": "build",
   "scripts": {
+    "build": "",
     "test": "jest"
   },
   "keywords": [],
