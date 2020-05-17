@@ -1,37 +1,25 @@
 import { types as t } from "@babel/core"
-import type { ObjectExpression, ObjectProperty } from "babel-types"
+import type { Identifier, Expression, MemberExpression } from "babel-types"
+import { astFromPrimitive } from './helper';
 
-export function callExpressionFactory(methodChainWithDots: string, methodOptions: {
-  [key: string]: 'bigint' | 'boolean' | 'RegExp' | 'number' | 'string'
-}) {
+export function callExpressionFactory(methodChainWithDots: string, parameters: string[], methodOptions: object) {
   const methodChainArray = methodChainWithDots.split('.')
 
-  // TODO: types
-  let nestedMemberExpression: any = t.identifier(methodChainArray.shift())
+  let nestedMemberExpression: Identifier | MemberExpression = t.identifier(methodChainArray.shift()) as unknown as Identifier
   for(const identifier of methodChainArray) {
-    nestedMemberExpression = t.memberExpression(nestedMemberExpression, t.identifier(identifier))
+    // @ts-ignore
+    nestedMemberExpression = t.memberExpression(nestedMemberExpression as unknown as Expression, t.identifier(identifier)) as unknown as MemberExpression
   }
 
-  const objectExpressionProperties: ObjectProperty[] = []
+  const objectExpressionProperties: any[] = []
   for (const key in methodOptions) {
     const rawValue = methodOptions[key]
-    let value
-    if (typeof rawValue === 'string') value = t.stringLiteral(rawValue)
-    else if (typeof rawValue === 'bigint') value = t.bigIntLiteral(rawValue)
-    else if (typeof rawValue === 'boolean') value = t.bigIntLiteral(rawValue)
-    else if (typeof rawValue === 'undefined') value = t.unaryExpression("void", t.numericLiteral(0), true)
-    else if (rawValue === null) value = t.nullLiteral()
-    else if (typeof rawValue === 'number') value = t.numericLiteral(rawValue)
-    else if (rawValue as object instanceof RegExp) value = t.regExpLiteral(rawValue)
-    else throw new Error('unexpected RawValue')
 
-    console.log(key, value, 'thingy')
-    // @ts-ignore
-    objectExpressionProperties.push(t.objectProperty(t.identifier(key), value))
+    objectExpressionProperties.push(t.objectProperty(t.identifier(key), astFromPrimitive(rawValue)))
   }
 
   const objectExpression = t.objectExpression(objectExpressionProperties as any)
-  console.log(nestedMemberExpression, objectExpressionProperties)
+
   // @ts-ignore
-  return t.callExpression(nestedMemberExpression, [objectExpression])
+  return t.callExpression(nestedMemberExpression, [...parameters, objectExpression])
 }

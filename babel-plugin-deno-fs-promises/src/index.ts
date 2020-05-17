@@ -1,4 +1,4 @@
-import { ApiCall } from "./apiCall"
+import { ApiCall } from "./ApiCall"
 import { callExpressionFactory } from './BabelFactories';
 
 type param = string | number | boolean | object
@@ -35,41 +35,28 @@ export default function declare(api, options) {
 
         if (apiCall.matches('fs.promises.readFile')) {
           path.replaceWith(
-            // t.callExpression(
-            //   t.memberExpression(t.identifier('Deno'), t.identifier('readTextFile')),
-            //   node.arguments
-            // )
-            callExpressionFactory('Deno.readTextFifle', {
+            callExpressionFactory('Deno.readTextFile', [], {
               encoding: 'utf8'
             })
           )
         } else if (apiCall.matches('fs.promises.chmod')) {
+          const args = node.arguments
           path.replaceWith(
-            t.callExpression(
-              t.memberExpression(t.identifier('Deno'), t.identifier('chmod')),
-              node.arguments
-            )
+            callExpressionFactory('Deno.chmod', [], {
+
+            })
           )
         } else if (apiCall.matches('fs.promises.chown')) {
           path.replaceWith(
-            t.callExpression(
-              t.memberExpression(t.identifier('Deno'), t.identifier('chown')),
-              node.arguments
-            )
+            callExpressionFactory('Deno.chown',[],  {})
           )
         } else if (apiCall.matches('fs.promises.copyFile')) {
           path.replaceWith(
-            t.callExpression(
-              t.memberExpression(t.identifier("Deno"), t.identifier("copyFile")),
-              node.arguments,
-            ),
+            callExpressionFactory('fs.copyFile',[],  {})
           );
         } else if (apiCall.matches('fs.promises.mkdir')) {
           path.replaceWith(
-            t.callExpression(
-              t.memberExpression(t.identifier("Deno"), t.identifier("mkdir")),
-              node.arguments,
-            ),
+            callExpressionFactory('Deno.mkdir', [], {})
           );
         }
       }

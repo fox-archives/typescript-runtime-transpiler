@@ -2,8 +2,8 @@
 
 exports[`snapshot: transpiled first.mjs matches first.deno.js 1`] = `
 "(async () => {
-  const contents = await Deno.readTextFile('./file', {
-    encoding: 'utf8'
+  const contents = await Deno.readTextFile({
+    encoding: \\"utf8\\"
   });
   console.log(contents);
 })();"
@@ -13,15 +13,12 @@ exports[`snapshot: transpiled first.mjs matches first.deno.js 2`] = `null`;
 
 exports[`snapshot: transpiled fs-promises-no-option.mjs matches fs-promises-no-option.deno.js 1`] = `
 "(async () => {
-  await Deno.chmod(\\"chmod\\", mode);
-  await Deno.chown(\\"chown\\", uid, gid);
-  await Deno.copyFile(\\"copyFileSrc\\", \\"copyFileDest\\", 0o0744);
-  await Deno.copyFile(\\"copyFileSrc2\\", \\"copyFileDest2\\");
-  await Deno.mkdir(\\"mkdir\\");
-  await Deno.mkdir(\\"mkdir2\\", {
-    recursive: false,
-    mode: 0o744
-  });
+  await Deno.chmod({});
+  await Deno.chown({});
+  await fs.copyFile({});
+  await fs.copyFile({});
+  await Deno.mkdir({});
+  await Deno.mkdir({});
   await fs.promises.mkdtemp(\\"mkdirtemp\\");
   await fs.promises.mkdtemp(\\"mkdirtemp2\\", {
     encoding: 'utf8'
