@@ -19,8 +19,8 @@ exports[`snapshot: transpiled fs-promises-no-option.mjs matches fs-promises-no-o
   await fs.copyFile({});
   await Deno.mkdir({});
   await Deno.mkdir({});
-  await fs.promises.mkdtemp(\\"mkdirtemp\\");
-  await fs.promises.mkdtemp(\\"mkdirtemp2\\", {
+  await fs.promises.mkdtemp('mkdirtemp');
+  await fs.promises.mkdtemp('mkdirtemp2', {
     encoding: 'utf8'
   });
   await fs.promises.open(path, flags);

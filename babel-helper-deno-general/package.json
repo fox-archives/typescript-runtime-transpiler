@@ -11,6 +11,10 @@
   "author": "Edwin Kofler",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.9.6",
     "typescript": "^3.9.2"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.9.6"
   }
 }

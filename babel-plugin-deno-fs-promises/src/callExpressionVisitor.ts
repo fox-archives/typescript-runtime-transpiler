@@ -10,28 +10,28 @@ export function callExpressionVisitor(path) {
 
   if (apiCall.matches('fs.promises.readFile')) {
     path.replaceWith(
-      callExpressionFactory('Deno.readTextFile', [], {
+      callExpressionFactory('Deno.readTextFile', [{
         encoding: 'utf8',
-      }),
+      }]),
     );
   } else if (apiCall.matches('fs.promises.chmod')) {
     const args = node.arguments;
     path.replaceWith(
-      callExpressionFactory('Deno.chmod', [], {
+      callExpressionFactory('Deno.chmod', [{
 
-      }),
+      }]),
     );
   } else if (apiCall.matches('fs.promises.chown')) {
     path.replaceWith(
-      callExpressionFactory('Deno.chown', [], {}),
+      callExpressionFactory('Deno.chown', [{}]),
     );
   } else if (apiCall.matches('fs.promises.copyFile')) {
     path.replaceWith(
-      callExpressionFactory('fs.copyFile', [], {}),
+      callExpressionFactory('fs.copyFile', [{}]),
     );
   } else if (apiCall.matches('fs.promises.mkdir')) {
     path.replaceWith(
-      callExpressionFactory('Deno.mkdir', [], {}),
+      callExpressionFactory('Deno.mkdir', [{}]),
     );
   }
 }

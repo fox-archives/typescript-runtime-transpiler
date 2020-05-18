@@ -9,7 +9,14 @@
     "guard-for-in": "off",
     "no-unused-vars": "off",
     "no-unused-labels": "off",
-    "@typescript-eslint/no-unused-vars": "off"
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-use-before-define": [
+      "error",
+      {
+        "functions": false
+      }
+    ],
+    "no-else-return": "off"
   },
   "overrides": [
     {

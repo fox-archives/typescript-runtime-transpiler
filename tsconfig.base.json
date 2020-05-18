@@ -11,7 +11,12 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "forceConsistentCasingInFileNames": true,
-    "typeRoots": ["./node_modules/@types", "../node_modules/@types"],
+    "typeRoots": [
+      "./node_modules/@types",
+      "../node_modules/@types",
+      "./@types",
+      "../@types"
+    ],
     "lib": ["ESNext"],
     "composite": true,
     // ensure this is on for composite and project references
