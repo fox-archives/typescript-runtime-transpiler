@@ -1,1 +1,1 @@
-export * from '../../node_modules/@babel/types/lib/index';
+export * from "../../node_modules/@babel/types/lib/index"

@@ -1,8 +1,9 @@
 import { types as t } from '@babel/core';
 import { astFromPrimitive } from './helper';
 import {
-  Identifier, MemberExpression, SpreadElement, JSXNamespacedName, ArgumentPlaceholder, Expression, ObjectProperty, ObjectExpression,
-} from '../../@types/babel-types/index.d';
+  Identifier, MemberExpression, SpreadElement,
+  JSXNamespacedName, ArgumentPlaceholder, Expression, ObjectProperty, ObjectExpression,
+} from 'bt';
 
 
 type primitive = string | number | object | bigint | boolean;

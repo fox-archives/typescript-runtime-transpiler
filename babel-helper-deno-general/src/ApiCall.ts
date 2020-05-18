@@ -1,9 +1,15 @@
 import util from 'util';
-import type {
-  CallExpression, Node, Expression, JSXNamespacedName, SpreadElement, ObjectExpression, ArgumentPlaceholder,
-} from '../../@types/babel-types/index.d';
+import {
+  SpreadElement,
+  JSXNamespacedName,
+  ArgumentPlaceholder,
+  Expression,
+  ObjectExpression,
+  CallExpression,
+} from 'bt';
 
 /**
+ *
  * @desc this flattens the 'likeMemberExpressionChain' i.e. the nested
  * MemberExpressions (nested in the first parameter) including the Identifier at the
  * end of the chain

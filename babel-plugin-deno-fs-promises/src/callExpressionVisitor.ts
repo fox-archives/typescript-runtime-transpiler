@@ -1,7 +1,7 @@
 import { callExpressionFactoryAst, ApiCall } from 'babel-helper-deno-general';
 import type {
   Expression, Node, SpreadElement, JSXNamespacedName, ArgumentPlaceholder,
-} from '../../@types/babel-types/index.d';
+} from 'bt';
 
 export function callExpressionVisitor(path) {
   const { node } = path;

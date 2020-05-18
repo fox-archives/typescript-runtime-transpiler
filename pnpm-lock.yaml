@@ -53,7 +53,6 @@ importers:
       '@types/jest': 25.2.2
       '@types/node': 14.0.1
       jest: 26.0.1
-      node-ts: 5.0.5
       ts-jest: 26.0.0_jest@26.0.1+typescript@3.9.2
       typescript: 3.9.2
     specifiers:
@@ -64,7 +63,6 @@ importers:
       '@types/node': ^14.0.1
       babel-helper-deno-general: ^0.1.0
       jest: ^26.0.1
-      node-ts: ^5.0.5
       ts-jest: ^26.0.0
       typescript: ^3.9.2
   babel-preset-deno:
@@ -1633,12 +1631,6 @@ packages:
     dev: true
     resolution:
       integrity: sha512-0mnpenB8rLhBVu8VUklp38gWi+EatjvcEcLWcdProMKauSaQWWepOAybZ714sOGsEyhXPlIcHICggn8HUsCXVw==
-  /@rauschma/stringio/1.4.0:
-    dependencies:
-      '@types/node': 10.17.21
-    dev: true
-    resolution:
-      integrity: sha512-3uor2f/MXZkmX5RJf8r+OC3WvZVzpSme0yyL0rQDPEnatE02qRcqwEwnsgpgriEck0S/n4vWtUd6tTtrJwk45Q==
   /@rollup/plugin-babel/5.0.0_@babel+core@7.9.6+rollup@2.10.2:
     dependencies:
       '@babel/core': 7.9.6
@@ -1818,10 +1810,6 @@ packages:
     dev: true
     resolution:
       integrity: sha1-aaI6OtKcrwCX8G7aWbNh7i8GOfY=
-  /@types/node/10.17.21:
-    dev: true
-    resolution:
-      integrity: sha512-PQKsydPxYxF1DsAFWmunaxd3sOi3iMt6Zmx/tgaagHYmwJ/9cRH91hQkeJZaUGWbvn0K5HlSVEXkn5U/llWPpQ==
   /@types/node/13.13.5:
     dev: true
     resolution:
@@ -6097,7 +6085,7 @@ packages:
   /mkdirp-promise/5.0.1:
     dependencies:
       mkdirp: 1.0.4
-    deprecated: "This package is broken and no longer maintained. 'mkdirp' itself supports promises now, please switch to that."
+    deprecated: 'This package is broken and no longer maintained. ''mkdirp'' itself supports promises now, please switch to that.'
     dev: true
     engines:
       node: '>=4'
@@ -6261,15 +6249,6 @@ packages:
     optional: true
     resolution:
       integrity: sha512-y8ThJESxsHcak81PGpzWwQKxzk+5YtP3IxR8AYdpXQ1IB6FmcVzFdZXrkPin49F/DKUCfeeiziB8ptY9npzGuA==
-  /node-ts/5.0.5:
-    dependencies:
-      '@rauschma/stringio': 1.4.0
-      '@types/node': 13.13.6
-    dev: true
-    engines:
-      node: '>=10.0.0'
-    resolution:
-      integrity: sha512-rPsrjkRCqoJJmuRsIurRwtiOWaP21i+bSo2jeeLwl9HWvKZTP+fjDsah6NZSLqm/QXvEJ0DstkswWpfDq6ZDOg==
   /nopt/4.0.3:
     dependencies:
       abbrev: 1.1.1
