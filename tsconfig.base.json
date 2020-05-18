@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "outDir": "build",
     "sourceMap": true,
     "target": "ES2017",
     "module": "commonjs",
@@ -11,8 +10,13 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
-    "typeRoots": ["./node_modules/@types", "../node_modules@types"],
-    "lib": ["ESNext"]
+    "typeRoots": ["./node_modules/@types", "../node_modules/@types"],
+    "lib": ["ESNext"],
+    // this automatically sets rootDir in each package
+    "composite": true,
+    // ensure this is on for composite and project references
+    "declaration": true,
+    "declarationMap": true,
+    "incremental": true
   }
 }

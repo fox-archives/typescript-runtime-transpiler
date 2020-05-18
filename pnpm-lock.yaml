@@ -73,10 +73,12 @@ importers:
       babel-plugin-deno-fs-promises: 'link:../babel-plugin-deno-fs-promises'
     devDependencies:
       '@babel/plugin-syntax-flow': 7.8.3
+      '@babel/plugin-transform-modules-commonjs': 7.9.6
       typescript: 3.9.2
     specifiers:
       '@babel/helper-plugin-utils': ^7.8.3
       '@babel/plugin-syntax-flow': ^7.8.3
+      '@babel/plugin-transform-modules-commonjs': ^7.9.6
       babel-plugin-deno-fs-promises: ^0.1.0
       typescript: ^3.9.2
   deno_node_modules:
@@ -399,6 +401,17 @@ packages:
       '@babel/core': ^7.0.0-0
     resolution:
       integrity: sha512-7Qfg0lKQhEHs93FChxVLAvhBshOPQDtJUTVHr/ZwQNRccCm4O9D79r9tVSoV8iNwjP1YgfD+e/fgHcPkN1qEQg==
+  /@babel/plugin-transform-modules-commonjs/7.9.6:
+    dependencies:
+      '@babel/helper-module-transforms': 7.9.0
+      '@babel/helper-plugin-utils': 7.8.3
+      '@babel/helper-simple-access': 7.8.3
+      babel-plugin-dynamic-import-node: 2.3.3
+    dev: true
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    resolution:
+      integrity: sha512-7H25fSlLcn+iYimmsNe3uK1at79IE6SKW9q0/QeEHTMC9MdOZ+4bA+T1VFB5fgOqBWoqlifXRzYD0JPdmIrgSQ==
   /@babel/plugin-transform-modules-commonjs/7.9.6_@babel+core@7.9.6:
     dependencies:
       '@babel/core': 7.9.6
