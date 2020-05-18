@@ -1,7 +1,5 @@
 {
-  "extends": [
-    "airbnb-typescript"
-  ],
+  "extends": ["airbnb-typescript/base"],
   "parserOptions": {
     "project": "./tsconfig.base.json"
   },
@@ -10,11 +8,12 @@
     "no-restricted-syntax": "off",
     "guard-for-in": "off",
     "no-unused-vars": "off",
-    "no-unused-labels": "off"
+    "no-unused-labels": "off",
+    "@typescript-eslint/no-unused-vars": "off"
   },
   "overrides": [
     {
-      "files": "**/*.test.js",
+      "files": "**/*.test.ts",
       "env": {
         "jest": true
       }

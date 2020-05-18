@@ -5,6 +5,7 @@
   "main": "build",
   "scripts": {
     "build": "tsc --build",
+    "watch": "tsc --build --watch",
     "test": "jest"
   },
   "keywords": [],
@@ -22,5 +23,8 @@
   },
   "dependencies": {
     "babel-helper-deno-general": "^0.1.0"
+  },
+  "peerDependencies": {
+    "@babel/core": "^7.9.6"
   }
 }

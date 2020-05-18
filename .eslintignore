@@ -1,6 +1,9 @@
 # misc
 **/deno_node_modules/packages/**/*
 
+# test
+**/test/fixtures/**
+
 # packages
 **/node_modules/**
 

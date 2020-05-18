@@ -1,5 +1,5 @@
 import {
-  getNodeFiles, readTranspileAndWrite, nodeRun, denoRun, transpile,
+  getNodeFiles, readTranspileAndWrite, nodeRun, denoRun,
 } from './test.utils';
 
 const nodeFileNames: string[] = getNodeFiles();
