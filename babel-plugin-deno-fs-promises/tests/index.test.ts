@@ -1,9 +1,11 @@
-import { getNodeFiles, readTranspileAndWrite, nodeRun, denoRun, transpile } from "./test.utils";
+import {
+  getNodeFiles, readTranspileAndWrite, nodeRun, denoRun, transpile,
+} from './test.utils';
 
-let nodeFileNames: string[] = getNodeFiles()
+const nodeFileNames: string[] = getNodeFiles();
 
 // @ts-ignore nodeFileNames is being used before it is defined
-for(const fileName of nodeFileNames) {
+for (const fileName of nodeFileNames) {
   test(`snapshot: transpiled ${fileName}.mjs matches ${fileName}.deno.js`, async () => {
     const {
       denoResult,

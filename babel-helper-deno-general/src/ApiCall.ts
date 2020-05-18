@@ -11,7 +11,7 @@ function flattenLikeMemberExpressionChain(
   const memberExpressionArray: Array<string> = [];
 
   const walkUp = (currentParentMemberExpression) => {
-    if (currentParentMemberExpression.property.type !== "Identifier") {
+    if (currentParentMemberExpression.property.type !== 'Identifier') {
       console.log(
         "we can't deal with non identifiers. found",
         currentParentMemberExpression.property.type,
@@ -25,14 +25,14 @@ function flattenLikeMemberExpressionChain(
     memberExpressionArray.push(currentParentMemberExpression.property.name);
 
     if (
-      currentParentMemberExpression.object.type !== "MemberExpression" &&
-      currentParentMemberExpression.object.type !== "Identifier"
+      currentParentMemberExpression.object.type !== 'MemberExpression'
+      && currentParentMemberExpression.object.type !== 'Identifier'
     ) {
       console.log(
-        "only member expressions and identifiers must exist down the chain. found: ",
-        currentParentMemberExpression.object.type
+        'only member expressions and identifiers must exist down the chain. found: ',
+        currentParentMemberExpression.object.type,
       );
-      console.log(require('util').inspect(currentParentMemberExpression, {showHidden: false, depth: null}))
+      console.log(require('util').inspect(currentParentMemberExpression, { showHidden: false, depth: null }));
       throw new Error(
         `non member expression found while walking up (down) the chain. found ${currentParentMemberExpression.object.type}`,
       );
@@ -40,7 +40,7 @@ function flattenLikeMemberExpressionChain(
 
     // if we've reached an identifier, we know we are at the end of the chain
     // stop the walk
-    if (currentParentMemberExpression.object.type === "Identifier") {
+    if (currentParentMemberExpression.object.type === 'Identifier') {
       memberExpressionArray.push(currentParentMemberExpression.object.name);
       memberExpressionArray.reverse();
       return;
@@ -55,26 +55,26 @@ function flattenLikeMemberExpressionChain(
 }
 
 export class ApiCall {
-  #likeMemberExpressionChain: string[]
+  #likeMemberExpressionChain: string[];
 
   /**
    * right now 'node' is assumed to be a CallExpression
    */
   constructor(node) {
-    this.#likeMemberExpressionChain = flattenLikeMemberExpressionChain(node.callee)
+    this.#likeMemberExpressionChain = flattenLikeMemberExpressionChain(node.callee);
   }
 
   /**
    * @desc tests to see if two api calls are roughly similar.
    */
   public matches(comparison: string): boolean {
-    return this.#likeMemberExpressionChain.join('.') === comparison
+    return this.#likeMemberExpressionChain.join('.') === comparison;
   }
 
   /**
    * @desc converts the babel ast
    */
   public getOpts(): object {
-    return {}
+    return {};
   }
 }
