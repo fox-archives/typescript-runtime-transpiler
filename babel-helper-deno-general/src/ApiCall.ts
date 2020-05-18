@@ -30,8 +30,9 @@ function flattenLikeMemberExpressionChain(
     ) {
       console.log(
         "only member expressions and identifiers must exist down the chain. found: ",
-        currentParentMemberExpression.object.type,
+        currentParentMemberExpression.object.type
       );
+      console.log(require('util').inspect(currentParentMemberExpression, {showHidden: false, depth: null}))
       throw new Error(
         `non member expression found while walking up (down) the chain. found ${currentParentMemberExpression.object.type}`,
       );
