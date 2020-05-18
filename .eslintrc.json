@@ -16,7 +16,9 @@
         "functions": false
       }
     ],
-    "no-else-return": "off"
+    "no-else-return": "off",
+    "prefer-destructuring": "off",
+    "no-continue": "off"
   },
   "overrides": [
     {

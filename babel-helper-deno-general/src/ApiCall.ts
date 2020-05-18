@@ -1,3 +1,5 @@
+import type { CallExpression, Node, ObjectExpression } from '../../@types/babel-types/index.d';
+
 /**
  * @desc this flattens the 'likeMemberExpressionChain' i.e. the nested
  * MemberExpressions (nested in the first parameter) including the Identifier at the
@@ -54,14 +56,38 @@ function flattenLikeMemberExpressionChain(
   return memberExpressionArray;
 }
 
+/**
+ * @note probably the wrong abstraction
+ */
+// function argumentsAstToPrimitive(callExpressionArgs: CallExpression['arguments']): Array<primitive> {
+//   const apiCallArguments: Array<primitive> = [];
+//   let callExpressionArg: Node;
+//   for (callExpressionArg of callExpressionArgs) {
+//     if (callExpressionArg.type === 'StringLiteral') {
+//       apiCallArguments.push(callExpressionArg.value);
+//     } else if (callExpressionArg.type === '')
+//   }
+//   console.log('aa', args);
+//   return [];
+// }
+
+/**
+ * An ApiCall is essentially a CallExpression, with the calle being nested
+ * MemberExpressions up to an Identifier
+ */
+type primitive = string | number | object | bigint | boolean;
 export class ApiCall {
-  #likeMemberExpressionChain: string[];
+  #likeMemberExpressionChain: ReadonlyArray<string>;
+
+  #arguments: CallExpression['arguments'];
 
   /**
    * right now 'node' is assumed to be a CallExpression
    */
-  constructor(node) {
+  constructor(node: CallExpression) {
     this.#likeMemberExpressionChain = flattenLikeMemberExpressionChain(node.callee);
+    this.#arguments = node.arguments;
+    // this.#argumentsAsText = argumentsAstToPrimitive(node.arguments);
   }
 
   /**
@@ -72,9 +98,40 @@ export class ApiCall {
   }
 
   /**
-   * @desc converts the babel ast
+   * @desc converts the babel ast to actual params we can read and do tests on
    */
-  public getOpts(): object {
-    return {};
+  public argIsOfType(argNumber: callExpressionNumbers, argType: argTypeOptions): boolean {
+    const node = this.#arguments[argNumber - 1];
+    if (node.type === 'StringLiteral' && argType === String) return true;
+    else if (node.type === 'NumericLiteral' && argType === Number) return true;
+    else if (node.type === 'BooleanLiteral' && argType === Boolean) return true;
+    else {
+      console.log(argNumber, argType);
+      throw new Error('could not decipher this');
+    }
+  }
+
+  public hasTrailingObjectArg() {
+    return typeof this.#arguments[this.#arguments.length - 1] === 'object';
+  }
+
+  public getAstParam(argNumber: callExpressionNumbers): Node {
+    return this.#arguments[argNumber - 1];
+  }
+
+  public hasObjectParamKey(keyname: string): boolean {
+    if (!this.hasTrailingObjectArg()) return false;
+
+    const objectExpression = this.#arguments[this.#arguments.length - 1] as ObjectExpression;
+    for (const likeObjectProperty of objectExpression.properties) {
+      console.log(likeObjectProperty, keyname);
+      // SpreadElement doesn't contain property key
+      if (likeObjectProperty.type === 'SpreadElement') continue;
+
+      if (likeObjectProperty.key.name === keyname) return true;
+    }
+    return false;
   }
 }
+type argTypeOptions = StringConstructor | NumberConstructor | BooleanConstructor;
+type callExpressionNumbers = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
