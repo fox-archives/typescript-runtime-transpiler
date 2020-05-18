@@ -1,4 +1,7 @@
-import type { CallExpression, Node, ObjectExpression } from '../../@types/babel-types/index.d';
+import util from 'util';
+import type {
+  CallExpression, Node, Expression, JSXNamespacedName, SpreadElement, ObjectExpression, ArgumentPlaceholder,
+} from '../../@types/babel-types/index.d';
 
 /**
  * @desc this flattens the 'likeMemberExpressionChain' i.e. the nested
@@ -6,7 +9,7 @@ import type { CallExpression, Node, ObjectExpression } from '../../@types/babel-
  * end of the chain
  * @params {MemberExpression}
  */
-function flattenLikeMemberExpressionChain(
+function createCalleeNice(
   parentMemberExpression,
 ): Array<string> {
   // this really is an array of 'properties' of those memberExpression
@@ -34,7 +37,7 @@ function flattenLikeMemberExpressionChain(
         'only member expressions and identifiers must exist down the chain. found: ',
         currentParentMemberExpression.object.type,
       );
-      console.log(require('util').inspect(currentParentMemberExpression, { showHidden: false, depth: null }));
+      console.log(util.inspect(currentParentMemberExpression, { showHidden: false, depth: null }));
       throw new Error(
         `non member expression found while walking up (down) the chain. found ${currentParentMemberExpression.object.type}`,
       );
@@ -57,50 +60,42 @@ function flattenLikeMemberExpressionChain(
 }
 
 /**
- * @note probably the wrong abstraction
- */
-// function argumentsAstToPrimitive(callExpressionArgs: CallExpression['arguments']): Array<primitive> {
-//   const apiCallArguments: Array<primitive> = [];
-//   let callExpressionArg: Node;
-//   for (callExpressionArg of callExpressionArgs) {
-//     if (callExpressionArg.type === 'StringLiteral') {
-//       apiCallArguments.push(callExpressionArg.value);
-//     } else if (callExpressionArg.type === '')
-//   }
-//   console.log('aa', args);
-//   return [];
-// }
-
-/**
  * An ApiCall is essentially a CallExpression, with the calle being nested
  * MemberExpressions up to an Identifier
  */
 type primitive = string | number | object | bigint | boolean;
 export class ApiCall {
-  #likeMemberExpressionChain: ReadonlyArray<string>;
-
-  #arguments: CallExpression['arguments'];
+  /**
+   * Nice (easy to handle) representation of a CallExpression's callee. This is limited
+   * to nested MemberExpressions (and Identifier) though, we can't handle any CallExpression's
+   * within the nest
+   */
+  #calleeNice: ReadonlyArray<string>;
 
   /**
-   * right now 'node' is assumed to be a CallExpression
+   * This isn't 'argumentsNice' like 'calleeNice' is because the
+   * CallExpression.arguments structure isn't nested and it's easier
+   * to deal with
    */
+  #arguments: CallExpression['arguments'];
+
   constructor(node: CallExpression) {
-    this.#likeMemberExpressionChain = flattenLikeMemberExpressionChain(node.callee);
+    this.#calleeNice = createCalleeNice(node.callee);
     this.#arguments = node.arguments;
-    // this.#argumentsAsText = argumentsAstToPrimitive(node.arguments);
   }
 
   /**
-   * @desc tests to see if two api calls are roughly similar.
+   * @desc returns true if two api calls have the same callee
+   * on their CallExpression
    */
   public matches(comparison: string): boolean {
-    return this.#likeMemberExpressionChain.join('.') === comparison;
+    return this.#calleeNice.join('.') === comparison;
   }
 
   /**
    * @desc converts the babel ast to actual params we can read and do tests on
    */
-  public argIsOfType(argNumber: callExpressionNumbers, argType: argTypeOptions): boolean {
+  public argNumHasType(argNumber: callExpressionNumbers, argType: argTypeOptions): boolean {
     const node = this.#arguments[argNumber - 1];
     if (node.type === 'StringLiteral' && argType === String) return true;
     else if (node.type === 'NumericLiteral' && argType === Number) return true;
@@ -115,11 +110,21 @@ export class ApiCall {
     return typeof this.#arguments[this.#arguments.length - 1] === 'object';
   }
 
-  public getAstParam(argNumber: callExpressionNumbers): Node {
+  public getArgNumAst(argNumber: callExpressionNumbers): Expression | SpreadElement | JSXNamespacedName | ArgumentPlaceholder {
     return this.#arguments[argNumber - 1];
   }
 
-  public hasObjectParamKey(keyname: string): boolean {
+  public getArgsAst(): Array<Expression | SpreadElement | JSXNamespacedName | ArgumentPlaceholder> {
+    return this.#arguments;
+  }
+
+  // todo: rename callExpressionNumbers type to something else
+  public hasNumParameter(argNumber: callExpressionNumbers): boolean {
+    // both .length and argNumber start from 1
+    return this.#arguments.length >= argNumber;
+  }
+
+  public objParamHasKey(keyname: string): boolean {
     if (!this.hasTrailingObjectArg()) return false;
 
     const objectExpression = this.#arguments[this.#arguments.length - 1] as ObjectExpression;
@@ -133,5 +138,6 @@ export class ApiCall {
     return false;
   }
 }
+
 type argTypeOptions = StringConstructor | NumberConstructor | BooleanConstructor;
 type callExpressionNumbers = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;

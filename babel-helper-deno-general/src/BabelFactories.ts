@@ -1,11 +1,14 @@
 import { types as t } from '@babel/core';
 import { astFromPrimitive } from './helper';
 import {
-  Identifier, MemberExpression, Expression, ObjectProperty, ObjectExpression,
+  Identifier, MemberExpression, SpreadElement, JSXNamespacedName, ArgumentPlaceholder, Expression, ObjectProperty, ObjectExpression,
 } from '../../@types/babel-types/index.d';
 
 
 type primitive = string | number | object | bigint | boolean;
+/**
+ *
+ */
 export function callExpressionFactory(
   methodChainString: string,
   callParameters: Array<primitive>,
@@ -41,6 +44,29 @@ export function callExpressionFactory(
     const astObjectLiteral = toAstObjectLiteral(methodOptions);
     return t.callExpression(nestedMemberExpression, [...astCallParameters, astObjectLiteral]);
   }
+}
+
+/**
+ *
+ */
+export function callExpressionFactoryAst(
+  methodChainString: string,
+  callParameters: Array<Expression | SpreadElement | JSXNamespacedName | ArgumentPlaceholder>,
+) {
+  const methodChainArray = methodChainString.split('.');
+
+  // create the nestedMemberExpression
+  // ex. identifier.MemberExpression.MemberExpression(param1, param2, myObject)
+  let nestedMemberExpression: Identifier | MemberExpression = t.identifier(
+    methodChainArray.shift(),
+  );
+  for (const identifier of methodChainArray) {
+    nestedMemberExpression = t.memberExpression(
+      nestedMemberExpression,
+      t.identifier(identifier),
+    );
+  }
+  return t.callExpression(nestedMemberExpression, callParameters);
 }
 
 /**

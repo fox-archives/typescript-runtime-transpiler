@@ -1,10 +1,10 @@
 (async () => {
-  await fs.promises.chmod('chmod', mode);
-  await fs.promises.chown('chown', uid, gid);
-  await fs.promises.copyFile('copyFileSrc', 'copyFileDest', 0o0744);
-  await fs.promises.copyFile('copyFileSrc2', 'copyFileDest2');
-  await fs.promises.mkdir('mkdir');
-  await fs.promises.mkdir('mkdir2', {
+  await Deno.chmod('chmod', mode);
+  await Deno.chown('chown', uid, gid);
+  await Deno.copyFile('copyFileSrc', 'copyFileDest');
+  await Deno.copyFile('copyFileSrc2', 'copyFileDest2');
+  await Deno.mkdir('mkdir');
+  await Deno.mkdir('mkdir2', {
     recursive: false,
     mode: 0o744
   });

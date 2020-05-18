@@ -1,5 +1,7 @@
-import { callExpressionFactory, ApiCall } from 'babel-helper-deno-general';
-import type { Expression, Node } from '../../@types/babel-types/index.d';
+import { callExpressionFactoryAst, ApiCall } from 'babel-helper-deno-general';
+import type {
+  Expression, Node, SpreadElement, JSXNamespacedName, ArgumentPlaceholder,
+} from '../../@types/babel-types/index.d';
 
 export function callExpressionVisitor(path) {
   const { node } = path;
@@ -10,40 +12,47 @@ export function callExpressionVisitor(path) {
   const apiCall = new ApiCall(node);
 
   if (apiCall.matches('fs.promises.readFile')) {
-    // todo: make Node => Expression
-    const newArgs: Array<Node> = [];
-    if (!apiCall.argIsOfType(1, String)) {
+    const args: Array<Expression | SpreadElement | JSXNamespacedName | ArgumentPlaceholder> = [];
+    if (!apiCall.argNumHasType(1, String)) {
       throw new Error('first param has to be string');
     }
-    newArgs.push(apiCall.getAstParam(1));
+    args.push(apiCall.getArgNumAst(1));
 
-    if (apiCall.hasObjectParamKey('encoding')) {
+    if (apiCall.objParamHasKey('encoding')) {
       path.replaceWith(
-        callExpressionFactory('Deno.readTextFile', []),
+        callExpressionFactoryAst('Deno.readTextFile', args),
       );
     } else {
       path.replaceWith(
-        callExpressionFactory('Deno.readFile', []),
+        callExpressionFactoryAst('Deno.readFile', args),
       );
     }
-  } // else if (apiCall.matches('fs.promises.chmod')) {
-  //   const args = node.arguments;
-  //   path.replaceWith(
-  //     callExpressionFactory('Deno.chmod', [{
+  } else if (apiCall.matches('fs.promises.chmod')) {
+    const args = apiCall.getArgsAst();
+    path.replaceWith(
+      callExpressionFactoryAst('Deno.chmod', args),
+    );
+  } else if (apiCall.matches('fs.promises.chown')) {
+    const args = apiCall.getArgsAst();
+    path.replaceWith(
+      callExpressionFactoryAst('Deno.chown', args),
+    );
+  } else if (apiCall.matches('fs.promises.copyFile')) {
+    const src = apiCall.getArgNumAst(1);
+    const dest = apiCall.getArgNumAst(2);
+    const modeOptional = apiCall.getArgNumAst(3);
 
-  //     }]),
-  //   );
-  // } else if (apiCall.matches('fs.promises.chown')) {
-  //   path.replaceWith(
-  //     callExpressionFactory('Deno.chown', []),
-  //   );
-  // } else if (apiCall.matches('fs.promises.copyFile')) {
-  //   path.replaceWith(
-  //     callExpressionFactory('fs.copyFile', []),
-  //   );
-  // } else if (apiCall.matches('fs.promises.mkdir')) {
-  //   path.replaceWith(
-  //     callExpressionFactory('Deno.mkdir', []),
-  //   );
-  // }
+    if (modeOptional) {
+      console.warn('mode option for fs.promises.copyFile not supported');
+    }
+
+    path.replaceWith(
+      callExpressionFactoryAst('Deno.copyFile', [src, dest]),
+    );
+  } else if (apiCall.matches('fs.promises.mkdir')) {
+    const args = apiCall.getArgsAst();
+    path.replaceWith(
+      callExpressionFactoryAst('Deno.mkdir', args),
+    );
+  }
 }
