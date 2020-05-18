@@ -1,12 +1,13 @@
 import path from 'path';
 import fs from 'fs';
 import util from 'util';
-import child_process from 'child_process';
+import childProcess from 'child_process';
+// eslint-disable-next-line
 import * as babel from '@babel/core';
 import type { BabelFileResult } from 'babel__core';
 import plugin from '../src/index';
 
-const exec = util.promisify(child_process.exec);
+const exec = util.promisify(childProcess.exec);
 
 export async function readNodeFile(fileName: string): Promise<string> {
   const fileNamePath = path.join(__dirname, 'fixtures', `${fileName}.mjs`);
@@ -14,9 +15,9 @@ export async function readNodeFile(fileName: string): Promise<string> {
   return input;
 }
 
-export async function transpile(fileContents: string): Promise<BabelFileResult | null> {
+export function transpile(fileContents: string): Promise<BabelFileResult | null> {
   // @ts-ignore
-  return await babel.transformAsync(fileContents, {
+  return babel.transformAsync(fileContents, {
     plugins: [plugin],
     ast: false,
   });

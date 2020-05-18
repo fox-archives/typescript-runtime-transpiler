@@ -28,6 +28,7 @@ function flattenLikeMemberExpressionChain(
       currentParentMemberExpression.object.type !== 'MemberExpression'
       && currentParentMemberExpression.object.type !== 'Identifier'
     ) {
+      return;
       console.log(
         'only member expressions and identifiers must exist down the chain. found: ',
         currentParentMemberExpression.object.type,

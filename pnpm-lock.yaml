@@ -44,16 +44,40 @@ importers:
       prettier-plugin-toml: ^0.3.1
       ts-node: ^8.10.1
       typescript: ^3.8.3
-  babel-deno-helper-test-runner:
-    specifiers: {}
-  babel-deno-helpers:
-    specifiers: {}
   babel-helper-deno-general:
     devDependencies:
+      babel-types: 6.26.0
       typescript: 3.9.2
     specifiers:
+      babel-types: ^6.26.0
       typescript: ^3.9.2
+  babel-helper-deno-test-runner:
+    specifiers: {}
   babel-plugin-deno-fs-promises:
+    dependencies:
+      babel-helper-deno-general: 'link:../babel-helper-deno-general'
+    devDependencies:
+      '@babel/core': 7.9.6
+      '@babel/types': 7.9.6
+      '@types/babel__core': 7.1.7
+      '@types/jest': 25.2.2
+      '@types/node': 14.0.1
+      jest: 26.0.1
+      node-ts: 5.0.5
+      ts-jest: 26.0.0_jest@26.0.1+typescript@3.9.2
+      typescript: 3.9.2
+    specifiers:
+      '@babel/core': ^7.9.6
+      '@babel/types': ^7.9.6
+      '@types/babel__core': ^7.1.7
+      '@types/jest': ^25.2.2
+      '@types/node': ^14.0.1
+      babel-helper-deno-general: ^0.1.0
+      jest: ^26.0.1
+      node-ts: ^5.0.5
+      ts-jest: ^26.0.0
+      typescript: ^3.9.2
+  babel-plugin-deno-process:
     dependencies:
       babel-helper-deno-general: 'link:../babel-helper-deno-general'
     devDependencies:
@@ -1901,7 +1925,6 @@ packages:
       eslint: 7.0.0
       eslint-scope: 5.0.0
       eslint-utils: 2.0.0
-      typescript: 3.8.3
     dev: true
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
@@ -2405,6 +2428,22 @@ packages:
       '@babel/core': ^7.0.0
     resolution:
       integrity: sha512-9ce+DatAa31DpR4Uir8g4Ahxs5K4W4L8refzt+qHWQANb6LhGcAEfIFgLUwk67oya2cCUd6t4eUMtO/z64ocNw==
+  /babel-runtime/6.26.0:
+    dependencies:
+      core-js: 2.6.11
+      regenerator-runtime: 0.11.1
+    dev: true
+    resolution:
+      integrity: sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
+  /babel-types/6.26.0:
+    dependencies:
+      babel-runtime: 6.26.0
+      esutils: 2.0.3
+      lodash: 4.17.15
+      to-fast-properties: 1.0.3
+    dev: true
+    resolution:
+      integrity: sha1-o7Bz+Uq0nrb6Vc1lInozQ4BjJJc=
   /balanced-match/1.0.0:
     dev: true
     resolution:
@@ -3074,6 +3113,12 @@ packages:
     requiresBuild: true
     resolution:
       integrity: sha512-lacdXOimsiD0QyNf9BC/mxivNJ/ybBGJXQFKzRekp1WTHoVUWsUHEn+2T8GJAzzIhyOuXA+gOxCVN3l+5PLPUA==
+  /core-js/2.6.11:
+    deprecated: 'core-js@<3 is no longer maintained and not recommended for usage due to the number of issues. Please, upgrade your dependencies to the actual version of core-js@3.'
+    dev: true
+    requiresBuild: true
+    resolution:
+      integrity: sha512-5wjnpaT/3dV+XB4borEsnAYQchn00XSgTAWKDkEqv+K8KevjbzmofK6hfJ9TZIlpj2N0xQpazy7PiRQiWHqzWg==
   /core-util-is/1.0.2:
     dev: true
     resolution:
@@ -7450,6 +7495,10 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-6tDA8g98We0zd0GvVeMT9arEOnTw9qM03L9cJXaCjrip1OO764RDBLBfrB4cwzNGDj5OA5ioymC9GkizgWJDUg==
+  /regenerator-runtime/0.11.1:
+    dev: true
+    resolution:
+      integrity: sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
   /regenerator-runtime/0.13.5:
     dev: true
     resolution:
@@ -8488,6 +8537,12 @@ packages:
     dev: true
     resolution:
       integrity: sha1-I2QN17QtAEM5ERQIIOXPRA5SHdE=
+  /to-fast-properties/1.0.3:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-uDVx+k2MJbguIxsG46MFXeTKGkc=
   /to-fast-properties/2.0.0:
     dev: true
     engines:

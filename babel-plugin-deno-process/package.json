@@ -1,0 +1,27 @@
+{
+  "name": "babel-plugin-deno-process",
+  "version": "0.1.0",
+  "description": "",
+  "main": "build",
+  "scripts": {
+    "build": "tsc --build",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Edwin Kofler",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/types": "^7.9.6",
+    "@types/babel__core": "^7.1.7",
+    "@types/jest": "^25.2.2",
+    "@types/node": "^14.0.1",
+    "jest": "^26.0.1",
+    "node-ts": "^5.0.5",
+    "ts-jest": "^26.0.0",
+    "typescript": "^3.9.2"
+  },
+  "dependencies": {
+    "babel-helper-deno-general": "^0.1.0"
+  }
+}
