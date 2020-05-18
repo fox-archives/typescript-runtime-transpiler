@@ -4,7 +4,7 @@
   "description": "Babel preset to transpile NodeJS API calls to their respective Deno equivalents",
   "main": "build",
   "scripts": {
-    "build": "tsc --outDir build",
+    "build": "tsc",
     "test": "jest"
   },
   "keywords": [

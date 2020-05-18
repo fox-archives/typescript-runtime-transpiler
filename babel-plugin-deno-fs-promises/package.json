@@ -4,7 +4,7 @@
   "description": "",
   "main": "build",
   "scripts": {
-    "build": "tsc --outDir build",
+    "build": "tsc",
     "test": "jest"
   },
   "keywords": [],
