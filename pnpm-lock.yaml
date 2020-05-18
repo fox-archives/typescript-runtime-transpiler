@@ -80,6 +80,7 @@ importers:
   babel-preset-deno:
     dependencies:
       '@babel/helper-plugin-utils': 7.8.3
+      '@babel/preset-flow': 7.9.0
       babel-plugin-deno-fs-promises: 'link:../babel-plugin-deno-fs-promises'
     devDependencies:
       '@babel/plugin-syntax-flow': 7.8.3
@@ -89,6 +90,7 @@ importers:
       '@babel/helper-plugin-utils': ^7.8.3
       '@babel/plugin-syntax-flow': ^7.8.3
       '@babel/plugin-transform-modules-commonjs': ^7.9.6
+      '@babel/preset-flow': ^7.9.0
       babel-plugin-deno-fs-promises: ^0.1.0
       typescript: ^3.9.2
   deno_node_modules:
@@ -315,7 +317,6 @@ packages:
   /@babel/plugin-syntax-flow/7.8.3:
     dependencies:
       '@babel/helper-plugin-utils': 7.8.3
-    dev: true
     peerDependencies:
       '@babel/core': ^7.0.0-0
     resolution:
@@ -401,6 +402,15 @@ packages:
       '@babel/core': ^7.0.0-0
     resolution:
       integrity: sha512-GO1MQ/SGGGoiEXY0e0bSpHimJvxqB7lktLLIq2pv8xG7WZ8IMEle74jIe1FhprHBWjwjZtXHkycDLZXIWM5Wfg==
+  /@babel/plugin-transform-flow-strip-types/7.9.0:
+    dependencies:
+      '@babel/helper-plugin-utils': 7.8.3
+      '@babel/plugin-syntax-flow': 7.8.3
+    dev: false
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    resolution:
+      integrity: sha512-7Qfg0lKQhEHs93FChxVLAvhBshOPQDtJUTVHr/ZwQNRccCm4O9D79r9tVSoV8iNwjP1YgfD+e/fgHcPkN1qEQg==
   /@babel/plugin-transform-flow-strip-types/7.9.0_@babel+core@7.9.6:
     dependencies:
       '@babel/core': 7.9.6
@@ -445,6 +455,15 @@ packages:
       '@babel/core': ^7.0.0-0
     resolution:
       integrity: sha512-8OvsRdvpt3Iesf2qsAn+YdlwAJD7zJ+vhFZmDCa4b8dTp7MmHtKk5FF2mCsGxjZwuwsy/yIIay/nLmxST1ctVQ==
+  /@babel/preset-flow/7.9.0:
+    dependencies:
+      '@babel/helper-plugin-utils': 7.8.3
+      '@babel/plugin-transform-flow-strip-types': 7.9.0
+    dev: false
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    resolution:
+      integrity: sha512-88uSmlshIrlmPkNkEcx3UpSZ6b8n0UGBq0/0ZMZCF/uxAW0XIAUuDHBhIOAh0pvweafH4RxOwi/H3rWhtqOYPA==
   /@babel/preset-flow/7.9.0_@babel+core@7.9.6:
     dependencies:
       '@babel/core': 7.9.6
