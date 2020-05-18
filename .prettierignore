@@ -1,4 +1,4 @@
-deno_node_modules/pacakges/
+**/deno_node_modules/packages/**/*
 dist/
 build/
 node_modules/
