@@ -1,6 +1,6 @@
 import { callExpressionFactoryAst, ApiCall } from 'babel-helper-deno-general';
 import type {
-  Expression, Node, SpreadElement, JSXNamespacedName, ArgumentPlaceholder,
+  Expression, SpreadElement, JSXNamespacedName, ArgumentPlaceholder,
 } from 'bt';
 
 export function callExpressionVisitor(path) {

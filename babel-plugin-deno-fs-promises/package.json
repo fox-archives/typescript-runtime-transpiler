@@ -22,7 +22,8 @@
   },
   "dependencies": {
     "@babel/template": "^7.8.6",
-    "babel-helper-deno-general": "^0.1.0"
+    "babel-helper-deno-general": "^0.1.0",
+    "debug": "^4.1.1"
   },
   "peerDependencies": {
     "@babel/core": "^7.9.6"

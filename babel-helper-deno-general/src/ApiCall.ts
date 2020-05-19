@@ -1,3 +1,4 @@
+import debug from 'debug';
 import util from 'util';
 import {
   SpreadElement,
@@ -31,7 +32,6 @@ function createCalleeNice(
         `non identifier detected. found ${currentParentMemberExpression.property.type}`,
       );
     }
-
     // yes, this adds them in reverse order. we reverse the whole array at the end
     memberExpressionArray.push(currentParentMemberExpression.property.name);
 
@@ -39,14 +39,8 @@ function createCalleeNice(
       currentParentMemberExpression.object.type !== 'MemberExpression'
       && currentParentMemberExpression.object.type !== 'Identifier'
     ) {
-      console.log(
-        'only member expressions and identifiers must exist down the chain. found: ',
-        currentParentMemberExpression.object.type,
-      );
-      console.log(util.inspect(currentParentMemberExpression, { showHidden: false, depth: null }));
-      throw new Error(
-        `non member expression found while walking up (down) the chain. found ${currentParentMemberExpression.object.type}`,
-      );
+      debug("this isn't something we can transform");
+      return;
     }
 
     // if we've reached an identifier, we know we are at the end of the chain
@@ -135,7 +129,6 @@ export class ApiCall {
 
     const objectExpression = this.#arguments[this.#arguments.length - 1] as ObjectExpression;
     for (const likeObjectProperty of objectExpression.properties) {
-      console.log(likeObjectProperty, keyname);
       // SpreadElement doesn't contain property key
       if (likeObjectProperty.type === 'SpreadElement') continue;
 

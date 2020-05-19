@@ -1,12 +1,13 @@
 import { types as t } from '@babel/core';
-import { astFromPrimitive } from './helper';
 import {
   Identifier, MemberExpression, SpreadElement,
   JSXNamespacedName, ArgumentPlaceholder, Expression, ObjectProperty, ObjectExpression,
 } from 'bt';
+import { astFromPrimitive, toAstCallExpressionArguments, isLastParameterObject } from './util';
+import { debug } from './util/debug';
 
+type primitive = string | number | object | bigint | boolean | undefined | null;
 
-type primitive = string | number | object | bigint | boolean;
 /**
  *
  */
@@ -28,7 +29,7 @@ export function callExpressionFactory(
     );
   }
 
-  if (!isLastParameterIsObject(callParameters)) {
+  if (!isLastParameterObject(callParameters)) {
     const astCallParameters = toAstCallExpressionArguments(callParameters);
     return t.callExpression(nestedMemberExpression, astCallParameters);
   } else {
@@ -48,7 +49,7 @@ export function callExpressionFactory(
 }
 
 /**
- *
+ * @desc convert method chain 'thing.two()' to ast representation
  */
 export function callExpressionFactoryAst(
   methodChainString: string,
@@ -82,21 +83,4 @@ function toAstObjectLiteral(objectLiteral: object): ObjectExpression {
     ));
   }
   return t.objectExpression(objectExpressionProperties);
-}
-
-/**
-   * @description converts an array [1, 4, 9] to ast representation, used most directly for
-   * callExpression 'arguments' option
-   */
-function toAstCallExpressionArguments(args: Array<primitive>): Array<Expression> {
-  const astCallParameters: Array<Expression> = [];
-  for (const callParameter in args) {
-    astCallParameters.push(astFromPrimitive(callParameter));
-  }
-  return astCallParameters;
-}
-
-function isLastParameterIsObject(args: Array<primitive>) {
-  const lastParam = args[args.length - 1];
-  return typeof lastParam === 'object' && !Array.isArray(lastParam);
 }
