@@ -106,7 +106,8 @@ export class ApiCall {
     return typeof this.#arguments[this.#arguments.length - 1] === 'object';
   }
 
-  public getArgNumAst(argNumber: callExpressionNumbers): Expression | SpreadElement | JSXNamespacedName | ArgumentPlaceholder {
+  public getArgNumAst(argNumber: callExpressionNumbers):
+  Expression | SpreadElement | JSXNamespacedName | ArgumentPlaceholder {
     return this.#arguments[argNumber - 1];
   }
 

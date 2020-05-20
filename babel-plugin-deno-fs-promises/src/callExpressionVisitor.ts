@@ -2,6 +2,7 @@ import { callExpressionFactoryAst, ApiCall } from 'babel-helper-deno-general';
 import type {
   Expression, SpreadElement, JSXNamespacedName, ArgumentPlaceholder,
 } from 'bt';
+import { debug } from './util/debug';
 
 export function callExpressionVisitor(path) {
   const { node } = path;
@@ -43,7 +44,7 @@ export function callExpressionVisitor(path) {
     const modeOptional = apiCall.getArgNumAst(3);
 
     if (modeOptional) {
-      console.warn('mode option for fs.promises.copyFile not supported');
+      debug('mode option for fs.promises.copyFile not supported');
     }
 
     path.replaceWith(

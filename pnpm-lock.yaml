@@ -6089,7 +6089,7 @@ packages:
   /mkdirp-promise/5.0.1:
     dependencies:
       mkdirp: 1.0.4
-    deprecated: 'This package is broken and no longer maintained. ''mkdirp'' itself supports promises now, please switch to that.'
+    deprecated: "This package is broken and no longer maintained. 'mkdirp' itself supports promises now, please switch to that."
     dev: true
     engines:
       node: '>=4'

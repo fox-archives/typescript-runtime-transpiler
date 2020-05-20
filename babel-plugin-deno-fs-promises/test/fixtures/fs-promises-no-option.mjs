@@ -4,7 +4,11 @@ import fs from 'fs'
 
   await fs.promises.chown('chown', uid, gid)
 
-  await fs.promises.copyFile('copyFileSrc', 'copyFileDest', fs.constants.COPYFILE_EXCL)
+  await fs.promises.copyFile(
+    'copyFileSrc',
+    'copyFileDest',
+    fs.constants.COPYFILE_EXCL
+  )
   await fs.promises.copyFile('copyFileSrc2', 'copyFileDest2')
 
   await fs.promises.mkdir('mkdir')
