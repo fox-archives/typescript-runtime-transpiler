@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-deno",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Babel preset to transpile NodeJS API calls to their respective Deno equivalents",
   "main": "build",
   "scripts": {
@@ -19,7 +19,7 @@
   "dependencies": {
     "@babel/helper-plugin-utils": "^7.8.3",
     "@babel/preset-flow": "^7.9.0",
-    "babel-plugin-deno-fs-promises": "^0.1.0"
+    "babel-plugin-deno-fs-promises": "^0.2.0"
   },
   "devDependencies": {
     "@babel/plugin-syntax-flow": "^7.8.3",

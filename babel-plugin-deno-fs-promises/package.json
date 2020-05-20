@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-deno-fs-promises",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "",
   "main": "build",
   "scripts": {
@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@babel/template": "^7.8.6",
-    "babel-helper-deno-general": "^0.1.0",
+    "babel-helper-deno-general": "^0.2.0",
     "debug": "^4.1.1"
   },
   "peerDependencies": {
