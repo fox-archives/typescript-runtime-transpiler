@@ -5,7 +5,7 @@
   "main": "build",
   "scripts": {
     "build": "tsc --build",
-    "test": "yarn"
+    "test": "jest"
   },
   "keywords": [],
   "author": "Edwin Kofler",

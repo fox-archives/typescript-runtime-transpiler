@@ -15,6 +15,7 @@ export function callExpressionFactory(
   methodChainString: string,
   callParameters: Array<primitive>,
 ) {
+  debug('callExpressionFactoryArgs: %c, %O', methodChainString, callParameters);
   const methodChainArray = methodChainString.split('.');
 
   // create the nestedMemberExpression

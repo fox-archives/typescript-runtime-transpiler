@@ -1,5 +1,3 @@
-import debug from 'debug';
-import util from 'util';
 import {
   SpreadElement,
   JSXNamespacedName,
@@ -8,6 +6,7 @@ import {
   ObjectExpression,
   CallExpression,
 } from 'bt';
+import { debug } from './util/debug';
 
 /**
  *
@@ -24,10 +23,7 @@ function createCalleeNice(
 
   const walkUp = (currentParentMemberExpression) => {
     if (currentParentMemberExpression.property.type !== 'Identifier') {
-      console.log(
-        "we can't deal with non identifiers. found",
-        currentParentMemberExpression.property.type,
-      );
+      debug('we cant deal with non identifiers. found %s', currentParentMemberExpression.property.type);
       throw new Error(
         `non identifier detected. found ${currentParentMemberExpression.property.type}`,
       );
@@ -39,7 +35,7 @@ function createCalleeNice(
       currentParentMemberExpression.object.type !== 'MemberExpression'
       && currentParentMemberExpression.object.type !== 'Identifier'
     ) {
-      debug("this isn't something we can transform");
+      debug("this isn't an (api (if it is a node api at all)) that we can transform: %O", currentParentMemberExpression);
       return;
     }
 
@@ -89,7 +85,8 @@ export class ApiCall {
    * on their CallExpression
    */
   public matches(comparison: string): boolean {
-    return this.#calleeNice.join('.') === comparison;
+    const doesMatch = this.#calleeNice.join('.') === comparison;
+    return doesMatch;
   }
 
   /**
@@ -101,7 +98,6 @@ export class ApiCall {
     else if (node.type === 'NumericLiteral' && argType === Number) return true;
     else if (node.type === 'BooleanLiteral' && argType === Boolean) return true;
     else {
-      console.log(argNumber, argType);
       throw new Error('could not decipher this');
     }
   }
