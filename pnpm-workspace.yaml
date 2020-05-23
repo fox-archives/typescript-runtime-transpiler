@@ -1,2 +1,3 @@
 packages:
-  - '*deno*'
+  - 'packages/*'
+  - deno_node_modules

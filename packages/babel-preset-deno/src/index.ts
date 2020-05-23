@@ -8,9 +8,10 @@ export default declare((api, opts) => {
   return {
     presets: [
       presetFlow,
+      presetTypescript,
     ],
     plugins: [
       denoFsPromises,
-    ].filter(Boolean),
+    ],
   };
 });

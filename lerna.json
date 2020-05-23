@@ -1,1 +1,1 @@
-{ "packages": ["*deno*"], "version": "0.2.0" }
+{ "packages": ["packages/*", "deno_node_modules"], "version": "0.2.0" }
