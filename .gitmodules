@@ -1,33 +1,33 @@
-[submodule "deno_node_modules/packages/moment"]
-	path = deno_node_modules/packages/moment
+[submodule "deno_modules/packages/moment"]
+	path = deno_modules/packages/moment
 	url = git@github.com:moment/moment
-[submodule "deno_node_modules/packages/node-mkdirp"]
-	path = deno_node_modules/packages/node-mkdirp
+[submodule "deno_modules/packages/node-mkdirp"]
+	path = deno_modules/packages/node-mkdirp
 	url = git@github.com:isaacs/node-mkdirp
-[submodule "deno_node_modules/packages/dotenv"]
-	path = deno_node_modules/packages/dotenv
+[submodule "deno_modules/packages/dotenv"]
+	path = deno_modules/packages/dotenv
 	url = git@github.com:motdotla/dotenv
-[submodule "deno_node_modules/packages/minimist"]
-	path = deno_node_modules/packages/minimist
+[submodule "deno_modules/packages/minimist"]
+	path = deno_modules/packages/minimist
 	url = git@github.com:substack/minimist
-[submodule "deno_node_modules/packages/node-semver"]
-	path = deno_node_modules/packages/node-semver
+[submodule "deno_modules/packages/node-semver"]
+	path = deno_modules/packages/node-semver
 	url = git@github.com:npm/node-semver
-[submodule "deno_node_modules/packages/rimraf"]
-	path = deno_node_modules/packages/rimraf
+[submodule "deno_modules/packages/rimraf"]
+	path = deno_modules/packages/rimraf
 	url = git@github.com:isaacs/rimraf
-[submodule "deno_node_modules/packages/minimatch"]
-	path = deno_node_modules/packages/minimatch
+[submodule "deno_modules/packages/minimatch"]
+	path = deno_modules/packages/minimatch
 	url = git@github.com:isaacs/minimatch
-[submodule "deno_node_modules/packages/node-glob"]
-	path = deno_node_modules/packages/node-glob
+[submodule "deno_modules/packages/node-glob"]
+	path = deno_modules/packages/node-glob
 	url = git@github.com:isaacs/node-glob
-[submodule "deno_node_modules/packages/js-yaml"]
-	path = deno_node_modules/packages/js-yaml
+[submodule "deno_modules/packages/js-yaml"]
+	path = deno_modules/packages/js-yaml
 	url = git@github.com:nodeca/js-yaml
-[submodule "deno_node_modules/packages/strip-ansi"]
-	path = deno_node_modules/packages/strip-ansi
+[submodule "deno_modules/packages/strip-ansi"]
+	path = deno_modules/packages/strip-ansi
 	url = git@github.com:sindresorhus/strip-ansi
-[submodule "deno_node_modules/packages/is"]
-	path = deno_node_modules/packages/is
+[submodule "deno_modules/packages/is"]
+	path = deno_modules/packages/is
 	url = git@github.com:sindresorhus/is

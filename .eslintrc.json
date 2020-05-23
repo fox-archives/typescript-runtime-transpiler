@@ -18,7 +18,10 @@
     ],
     "no-else-return": "off",
     "prefer-destructuring": "off",
-    "no-continue": "off"
+    "no-continue": "off",
+    "import/no-extraneous-dependencies": ["error", {
+      "devDependencies": false
+    }]
   },
   "overrides": [
     {

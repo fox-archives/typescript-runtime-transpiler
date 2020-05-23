@@ -1,5 +1,5 @@
 # misc
-**/deno_node_modules/packages/**/*
+**/deno_modules/packages/**/*
 
 # ts
 *.ts
