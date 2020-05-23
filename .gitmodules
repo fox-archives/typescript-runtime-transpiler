@@ -28,3 +28,6 @@
 [submodule "deno_node_modules/packages/strip-ansi"]
 	path = deno_node_modules/packages/strip-ansi
 	url = git@github.com:sindresorhus/strip-ansi
+[submodule "deno_node_modules/packages/is"]
+	path = deno_node_modules/packages/is
+	url = git@github.com:sindresorhus/is

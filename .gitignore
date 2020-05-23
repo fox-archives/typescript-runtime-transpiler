@@ -1,6 +1,3 @@
-# misc
-**/deno_node_modules/packages/**/*
-
 # packages
 **/node_modules/**
 
