@@ -7,13 +7,7 @@
   "include": ["src/**/*"],
   "references": [
     {
-      "path": "../babel-plugin-deno-fs-promises"
-    },
-    {
-      "path": "../babel-plugin-deno-fs"
-    },
-    {
-      "path": "../babel-plugin-deno-process"
+      "path": "../babel-helper-deno-general"
     }
   ]
 }
