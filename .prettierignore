@@ -3,6 +3,7 @@
 
 # ts
 *.ts
+*.js
 
 # build
 **/build/**
