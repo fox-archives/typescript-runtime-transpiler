@@ -1,4 +1,0 @@
-{
-  "packages": ["deno_modules", "packages/*"],
-  "version": "0.3.0"
-}
