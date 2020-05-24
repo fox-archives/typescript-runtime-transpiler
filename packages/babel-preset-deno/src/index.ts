@@ -7,7 +7,7 @@ export default declare((api, opts) => {
 
   return {
     presets: [
-      presetFlow
+      presetFlow,
     ],
     plugins: [
       denoFsPromises,

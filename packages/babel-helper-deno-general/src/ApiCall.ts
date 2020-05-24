@@ -6,7 +6,7 @@ import {
   ObjectExpression,
   CallExpression,
 } from 'bt';
-import { createCalleeNice } from './util'
+import { createCalleeNice } from './util';
 
 /**
  * An ApiCall is essentially a CallExpression, with the calle being nested
@@ -86,6 +86,6 @@ export class ApiCall {
   }
 }
 
-type argAst = Expression | SpreadElement | JSXNamespacedName | ArgumentPlaceholder
+type argAst = Expression | SpreadElement | JSXNamespacedName | ArgumentPlaceholder;
 type argTypeOptions = StringConstructor | NumberConstructor | BooleanConstructor;
 type argNumbers = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
