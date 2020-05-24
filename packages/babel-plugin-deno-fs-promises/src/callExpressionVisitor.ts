@@ -12,7 +12,8 @@ export function callExpressionVisitor(path) {
 
   const apiCall = new ApiCall(node);
 
-  if (apiCall.matches('fs.promises.readFile')) {
+  if (apiCall.is('fs.promises.readFile')) {
+    // TODO: remove this duplicated type
     const args: Array<Expression | SpreadElement | JSXNamespacedName | ArgumentPlaceholder> = [];
     if (!apiCall.argNumHasType(1, String)) {
       throw new Error('first param has to be string');
@@ -28,17 +29,17 @@ export function callExpressionVisitor(path) {
         callExpressionFactoryAst('Deno.readFile', args),
       );
     }
-  } else if (apiCall.matches('fs.promises.chmod')) {
+  } else if (apiCall.is('fs.promises.chmod')) {
     const args = apiCall.getArgsAst();
     path.replaceWith(
       callExpressionFactoryAst('Deno.chmod', args),
     );
-  } else if (apiCall.matches('fs.promises.chown')) {
+  } else if (apiCall.is('fs.promises.chown')) {
     const args = apiCall.getArgsAst();
     path.replaceWith(
       callExpressionFactoryAst('Deno.chown', args),
     );
-  } else if (apiCall.matches('fs.promises.copyFile')) {
+  } else if (apiCall.is('fs.promises.copyFile')) {
     const src = apiCall.getArgNumAst(1);
     const dest = apiCall.getArgNumAst(2);
     const modeOptional = apiCall.getArgNumAst(3);
@@ -50,7 +51,7 @@ export function callExpressionVisitor(path) {
     path.replaceWith(
       callExpressionFactoryAst('Deno.copyFile', [src, dest]),
     );
-  } else if (apiCall.matches('fs.promises.mkdir')) {
+  } else if (apiCall.is('fs.promises.mkdir')) {
     const args = apiCall.getArgsAst();
     path.replaceWith(
       callExpressionFactoryAst('Deno.mkdir', args),

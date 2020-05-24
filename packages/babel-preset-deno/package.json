@@ -4,6 +4,7 @@
   "description": "Babel preset to transpile NodeJS API calls to their respective Deno equivalents",
   "main": "build",
   "scripts": {
+    "clean": "rimraf build",
     "build": "tsc --build",
     "watch": "tsc --build --watch",
     "test": "jest"
@@ -25,6 +26,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.9.6",
     "@babel/preset-typescript": "^7.9.0",
     "@rollup/plugin-commonjs": "^12.0.0",
-    "typescript": "^3.9.2"
+    "rimraf": "^3.0.2",
+    "typescript": "^3.9.3"
   }
 }

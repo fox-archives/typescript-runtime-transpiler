@@ -4,6 +4,7 @@
   "description": "",
   "main": "build",
   "scripts": {
+    "clean": "rimraf build",
     "build": "tsc --build",
     "watch": "tsc --build --watch",
     "test": "jest"
@@ -17,11 +18,11 @@
     "@types/jest": "^25.2.2",
     "@types/node": "^14.0.1",
     "jest": "^26.0.1",
+    "rimraf": "^3.0.2",
     "ts-jest": "^26.0.0",
     "typescript": "^3.9.2"
   },
   "dependencies": {
-    "@babel/template": "^7.8.6",
     "babel-helper-deno-general": "^0.2.0",
     "debug": "^4.1.1"
   },

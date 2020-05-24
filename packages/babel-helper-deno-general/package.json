@@ -4,7 +4,9 @@
   "description": "",
   "main": "build",
   "scripts": {
+    "clean": "rimraf build",
     "build": "tsc --build",
+    "watch": "tsc --build --watch",
     "test": "jest"
   },
   "keywords": [],
@@ -12,6 +14,7 @@
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.9.6",
+    "rimraf": "^3.0.2",
     "typescript": "^3.9.2"
   },
   "peerDependencies": {
