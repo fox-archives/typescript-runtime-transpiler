@@ -18,9 +18,9 @@ export function callExpressionVisitor(path) {
     if (!apiCall.argNumHasType(1, String)) {
       throw new Error('first param has to be string');
     }
-    args.push(apiCall.getArgNumAst(1));
+    args.push(apiCall.getAstOfArgNumber(1));
 
-    if (apiCall.objParamHasKey('encoding')) {
+    if (apiCall.hasKeyInObjectArg('encoding')) {
       path.replaceWith(
         callExpressionFactoryAst('Deno.readTextFile', args),
       );
@@ -30,19 +30,19 @@ export function callExpressionVisitor(path) {
       );
     }
   } else if (apiCall.is('fs.promises.chmod')) {
-    const args = apiCall.getArgsAst();
+    const args = apiCall.getAstOfAllArgs();
     path.replaceWith(
       callExpressionFactoryAst('Deno.chmod', args),
     );
   } else if (apiCall.is('fs.promises.chown')) {
-    const args = apiCall.getArgsAst();
+    const args = apiCall.getAstOfAllArgs();
     path.replaceWith(
       callExpressionFactoryAst('Deno.chown', args),
     );
   } else if (apiCall.is('fs.promises.copyFile')) {
-    const src = apiCall.getArgNumAst(1);
-    const dest = apiCall.getArgNumAst(2);
-    const modeOptional = apiCall.getArgNumAst(3);
+    const src = apiCall.getAstOfArgNumber(1);
+    const dest = apiCall.getAstOfArgNumber(2);
+    const modeOptional = apiCall.getAstOfArgNumber(3);
 
     if (modeOptional) {
       debug('mode option for fs.promises.copyFile not supported');
@@ -52,7 +52,7 @@ export function callExpressionVisitor(path) {
       callExpressionFactoryAst('Deno.copyFile', [src, dest]),
     );
   } else if (apiCall.is('fs.promises.mkdir')) {
-    const args = apiCall.getArgsAst();
+    const args = apiCall.getAstOfAllArgs();
     path.replaceWith(
       callExpressionFactoryAst('Deno.mkdir', args),
     );

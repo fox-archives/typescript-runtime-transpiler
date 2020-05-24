@@ -4,13 +4,12 @@
     "rootDir": "src",
     "outDir": "build"
   },
-  "include": ["src/**/*"],
+  "include": [
+    "src/**/*"
+  ],
   "references": [
     {
-      "path": "../babel-plugin-deno-fs-promises"
-    },
-    {
-      "path": "../babel-plugin-deno-fs"
+      "path": "../babel-helper-deno-general"
     }
   ]
 }

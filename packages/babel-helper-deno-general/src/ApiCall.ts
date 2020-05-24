@@ -54,25 +54,26 @@ export class ApiCall {
     }
   }
 
-  public hasTrailingObjectArg() {
+
+  public hasObjectArg() {
     return typeof this.#arguments[this.#arguments.length - 1] === 'object';
   }
 
-  public getArgNumAst(argNumber: argNumbers): argAst {
+  public getAstOfArgNumber(argNumber: argNumbers): argAst {
     return this.#arguments[argNumber - 1];
   }
 
-  public getArgsAst(): Array<argAst> {
+  public getAstOfAllArgs(): Array<argAst> {
     return this.#arguments;
   }
 
-  public hasNumParameter(argNumber: argNumbers): boolean {
+  public hasNumberOfArgs(argNumber: argNumbers): boolean {
     // both .length and argNumber start from 1
     return this.#arguments.length >= argNumber;
   }
 
-  public objParamHasKey(keyname: string): boolean {
-    if (!this.hasTrailingObjectArg()) return false;
+  public hasKeyInObjectArg(keyname: string): boolean {
+    if (!this.hasObjectArg()) return false;
 
     const objectExpression = this.#arguments[this.#arguments.length - 1] as ObjectExpression;
     for (const likeObjectProperty of objectExpression.properties) {

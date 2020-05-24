@@ -80,6 +80,26 @@ importers:
       debug: ^4.1.1
       rimraf: ^3.0.2
       typescript: ^3.9.2
+  packages/babel-plugin-deno-fs:
+    dependencies:
+      babel-helper-deno-general: 'link:../babel-helper-deno-general'
+      debug: 4.1.1
+    devDependencies:
+      '@babel/core': 7.9.6
+      '@babel/types': 7.9.6
+      jest: 26.0.1
+      rimraf: 3.0.2
+      ts-jest: 26.0.0_jest@26.0.1+typescript@3.9.3
+      typescript: 3.9.3
+    specifiers:
+      '@babel/core': ^7.9.6
+      '@babel/types': ^7.9.6
+      babel-helper-deno-general: ^0.2.0
+      debug: ^4.1.1
+      jest: ^26.0.1
+      rimraf: ^3.0.2
+      ts-jest: ^26.0.0
+      typescript: ^3.9.3
   packages/babel-plugin-deno-fs-promises:
     dependencies:
       babel-helper-deno-general: 'link:../babel-helper-deno-general'
