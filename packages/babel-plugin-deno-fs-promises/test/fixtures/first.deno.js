@@ -1,4 +1,4 @@
-(async () => {
-  const contents = await Deno.readTextFile('./file');
-  console.log(contents);
-})();
+;(async () => {
+  const contents = await Deno.readTextFile('./file')
+  console.log(contents)
+})()

@@ -5,7 +5,6 @@
   "description": "Tools for transpiling Node APIs to their Deno counterparts",
   "scripts": {
     "clean": "lerna run clean",
-    "watch": "pnpm run clean && cd packages/babel-preset-deno && pnpm run watch",
     "test": "lerna run test",
     "lint": "run-s lint:js lint:misc",
     "lint:fix": "run-s lint:js:fix lint:misc:fix",
