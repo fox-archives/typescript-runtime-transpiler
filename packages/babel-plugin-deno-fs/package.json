@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-deno-fs",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "",
   "main": "build",
   "scripts": {
@@ -21,7 +21,7 @@
     "typescript": "^3.9.3"
   },
   "dependencies": {
-    "babel-helper-deno-general": "^0.2.0",
+    "babel-helper-deno-general": "^0.3.0",
     "debug": "^4.1.1"
   },
   "peerDependencies": {
