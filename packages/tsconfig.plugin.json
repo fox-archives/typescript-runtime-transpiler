@@ -1,0 +1,17 @@
+{
+  "extends": "../tsconfig.base.json",
+  // "compilerOptions": {
+  //   "rootDir": "src",
+  //   "outDir": "build"
+  // },
+  // "include": [
+  //   "src/**/*"
+  // ],
+  // plugins independent of eachother, but all may include
+  // helper functions
+  "references": [
+    {
+      "path": "../babel-helper-deno-general"
+    }
+  ]
+}
