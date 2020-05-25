@@ -1,3 +1,3 @@
-import { runner } from 'babel-helper-deno-plugin-test-runner';
+import { runner } from 'babel-helper-deno-plugin-test-runner'
 
-runner(__dirname);
+runner(__dirname)

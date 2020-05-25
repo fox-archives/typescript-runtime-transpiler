@@ -1,10 +1,6 @@
 # misc
 **/deno_modules/packages/**/*
 
-# ts
-*.ts
-*.js
-
 # build
 **/build/**
 **/dist/**

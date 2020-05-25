@@ -6,7 +6,7 @@
 // import { debug } from './util/debug';
 
 export function callExpressionVisitor(path) {
-  const { node } = path;
+  const { node } = path
 
   //   // ex. could be ArrowFunctionExpression etc. Ensure it's not
   //   if (node.callee.type !== 'MemberExpression') return;
@@ -18,8 +18,8 @@ export function callExpressionVisitor(path) {
   //   if (methodCall.includes('process.env')) {
   //     const args = methodCall.getAstOfAllArgs();
 
-//     path.replaceWith(
-//       callExpressionFactoryAst('Deno.chmodSync', args),
-//     );
-//   }
+  //     path.replaceWith(
+  //       callExpressionFactoryAst('Deno.chmodSync', args),
+  //     );
+  //   }
 }
