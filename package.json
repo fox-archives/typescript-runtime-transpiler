@@ -13,7 +13,7 @@
     "lint:js:fix": "eslint --fix .",
     "lint:misc": "prettier --check .",
     "lint:misc:fix": "prettier --write .",
-    "release": "standard-version"
+    "version": "lerna version && yarn conventional-changelog -p angular -i changelog.md"
   },
   "engines": {
     "node": ">=14.3.0"
@@ -28,6 +28,8 @@
     "@types/node": "^13.13.6",
     "@typescript-eslint/eslint-plugin": "^2.24.0",
     "commitizen": "^4.1.2",
+    "conventional-changelog": "^3.1.21",
+    "conventional-changelog-cli": "^2.0.34",
     "eslint": "^7.0.0",
     "eslint-config-airbnb-typescript": "^7.2.1",
     "eslint-config-prettier": "^6.11.0",
