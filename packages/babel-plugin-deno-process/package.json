@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-deno-process",
-  "version": "1.0.0",
+  "version": "0.4.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -16,12 +16,12 @@
     "@babel/core": "^7.9.6",
     "@babel/types": "^7.9.6",
     "@types/node": "^14.0.1",
-    "babel-helper-deno-plugin-test-runner": "^0.3.0",
+    "babel-helper-deno-plugin-test-runner": "^0.4.0",
     "rimraf": "^3.0.2",
     "typescript": "^3.9.2"
   },
   "dependencies": {
-    "babel-helper-deno-general": "^0.3.0",
+    "babel-helper-deno-general": "^0.4.0",
     "debug": "^4.1.1"
   },
   "peerDependencies": {
