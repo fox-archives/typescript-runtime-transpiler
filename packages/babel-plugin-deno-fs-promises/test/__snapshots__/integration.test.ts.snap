@@ -1,15 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot: transpiled first.mjs matches first.deno.js 1`] = `
-"(async () => {
-  const contents = await Deno.readTextFile('./file');
-  console.log(contents);
-})();"
-`;
-
-exports[`snapshot: transpiled first.mjs matches first.deno.js 2`] = `null`;
-
-exports[`snapshot: transpiled fs-promises-no-option.mjs matches fs-promises-no-option.deno.js 1`] = `
+exports[`integration: plugin-fs-promises snapshot: no-option 1`] = `
 "(async () => {
   await Deno.chmod('chmod', mode);
   await Deno.chown('chown', uid, gid);
@@ -28,4 +19,9 @@ exports[`snapshot: transpiled fs-promises-no-option.mjs matches fs-promises-no-o
 })();"
 `;
 
-exports[`snapshot: transpiled fs-promises-no-option.mjs matches fs-promises-no-option.deno.js 2`] = `null`;
+exports[`integration: plugin-fs-promises snapshot: readTextFile 1`] = `
+"(async () => {
+  const contents = await Deno.readTextFile('./file');
+  console.log(contents);
+})();"
+`;

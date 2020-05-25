@@ -12,6 +12,9 @@
   "references": [
     {
       "path": "../babel-helper-deno-general"
+    },
+    {
+      "path": "../babel-helper-deno-plugin-test-runner"
     }
   ]
 }

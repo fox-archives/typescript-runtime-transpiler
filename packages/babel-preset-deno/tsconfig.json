@@ -14,6 +14,9 @@
     },
     {
       "path": "../babel-plugin-deno-process"
+    },
+    {
+      "path": "../babel-helper-deno-plugin-test-runner"
     }
   ]
 }

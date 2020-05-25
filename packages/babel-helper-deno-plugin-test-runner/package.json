@@ -1,5 +1,5 @@
 {
-  "name": "babel-plugin-deno-fs",
+  "name": "babel-helper-deno-plugin-test-runner",
   "version": "0.3.0",
   "description": "",
   "main": "build",
@@ -10,18 +10,12 @@
     "test": "jest"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Edwin Kofler",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.9.6",
-    "@babel/types": "^7.9.6",
-    "babel-helper-deno-plugin-test-runner": "^0.3.0",
     "rimraf": "^3.0.2",
-    "typescript": "^3.9.3"
-  },
-  "dependencies": {
-    "babel-helper-deno-general": "^0.3.0",
-    "debug": "^4.1.1"
+    "typescript": "^3.9.2"
   },
   "peerDependencies": {
     "@babel/core": "^7.9.6"

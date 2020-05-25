@@ -1,10 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`snapshot: transpiled normal.mjs matches normal.deno.js 1`] = `
+exports[`integration: plugin-fs snapshot: normal 1`] = `
 "Deno.chmodSync(path, mode);
 Deno.chownSync(path, uid, gid);
 Deno.copyFileSync(src, dest);
 Deno.copyFileSync(src, dest);"
 `;
-
-exports[`snapshot: transpiled normal.mjs matches normal.deno.js 2`] = `null`;
