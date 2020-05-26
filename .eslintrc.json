@@ -5,9 +5,13 @@
     "plugin:prettier/recommended",
     "prettier/@typescript-eslint"
   ],
-  "parserOptions": {
-    "project": "./tsconfig.base.json"
-  },
+  // "parserOptions": {
+  //   "project": ["./packages/**/tsconfig.json"],
+  //   "projectFolderIgnoreList": [
+  //     "/node_modules/",
+  //     "/deno_modules/"
+  //   ]
+  // },
   "rules": {
     "import/prefer-default-export": "off",
     "no-restricted-syntax": "off",
