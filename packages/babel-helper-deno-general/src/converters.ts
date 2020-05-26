@@ -1,9 +1,9 @@
 import { types as t } from '@babel/core'
 import type { Expression } from 'bt'
 import type { Primitive, PrimitiveLike } from 't'
+import generate from '@babel/generator'
 import { error } from './log'
 import { debug } from './util/debug'
-import generate from "@babel/generator"
 
 /**
  * all these functions convert babel ast to more primitive values
@@ -23,7 +23,7 @@ export function astFromPrimitive(rawValue: Primitive) {
     value = t.unaryExpression('void', t.numericLiteral(0), true)
   } else if (rawValue === null) value = t.nullLiteral()
   else if (typeof rawValue === 'number') value = t.numericLiteral(rawValue)
-  else if ((rawValue as object) instanceof RegExp) {
+  else if (rawValue instanceof RegExp) {
     value = t.regExpLiteral(rawValue.toString())
   } else {
     throw new Error(`getAstFromPrimitive: unexpected rawValue: ${rawValue}`)
@@ -59,7 +59,7 @@ export function primitiveFromAst(ast: any): Primitive {
   }
 
   error(debug, 'unexpected value in primitiveFromAst: %O', ast)
-  return
+  return undefined
 }
 
 /**

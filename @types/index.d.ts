@@ -13,6 +13,4 @@ export type Primitive =
 /**
  * includes object
  */
-export type PrimitiveLike =
-  | Primitive
-  | object
+export type PrimitiveLike = Primitive | Record<string, Primitive>

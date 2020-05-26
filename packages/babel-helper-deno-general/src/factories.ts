@@ -9,11 +9,8 @@ import {
   ObjectProperty,
   ObjectExpression,
 } from 'bt'
-import type { PrimitiveLike } from 't'
-import {
-  astFromPrimitive,
-  toAstCallExpressionArguments,
-} from './converters'
+import type { PrimitiveLike, Primitive } from 't'
+import { astFromPrimitive, toAstCallExpressionArguments } from './converters'
 import { isLastParameterObject } from './util'
 import { debug } from './util/debug'
 
@@ -48,7 +45,7 @@ export function callExpressionFactory(
     const astCallParameters = toAstCallExpressionArguments(callParameters)
     return t.callExpression(nestedMemberExpression, astCallParameters)
   } else {
-    const methodOptions = callParameters.pop() as object
+    const methodOptions = callParameters.pop() as Record<string, Primitive>
 
     const astCallParameters = toAstCallExpressionArguments(callParameters)
 
@@ -100,7 +97,9 @@ export function callExpressionFactoryAst(
 /**
  * @description converts an object {a: 'b', c: 'd'} to ast representation
  */
-function toAstObjectLiteral(objectLiteral: object): ObjectExpression {
+function toAstObjectLiteral(
+  objectLiteral: Record<string, Primitive>
+): ObjectExpression {
   const objectExpressionProperties: Array<ObjectProperty> = []
   for (const key in objectLiteral) {
     const rawValue = objectLiteral[key]

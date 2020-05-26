@@ -1,3 +1,5 @@
+import type { Primitive } from 't'
+
 export class Mod {
   node: any
 
@@ -10,7 +12,7 @@ export class Mod {
    * for a deno std lib
    */
   public ensureStdImport(
-    denoImports: object,
+    denoImports: Record<string, Primitive>,
     moduleName: string,
     pathName: string
   ): void {

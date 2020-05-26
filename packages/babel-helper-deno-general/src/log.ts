@@ -11,7 +11,7 @@ type logSeverity = 'info' | 'warn' | 'error'
 function log(logSeverity: logSeverity, text: string, ...args: any[]): void {
   const babelDenoLogFile = path.join(process.cwd(), '.babel-deno.log')
 
-  let formattedString;
+  let formattedString
   if (args) {
     formattedString = util.format.apply(null, [text, ...args])
   } else {
@@ -36,12 +36,13 @@ export function info(text: string, ...args: any[]): void {
   log('info', text, args)
 }
 
-export function warn(debug: Function, text: string, ...args: any[]): void {
+type debugFn = (text: string) => void
+export function warn(debug: debugFn, text: string, ...args: any[]): void {
   log('warn', text, args)
   debug(text)
 }
 
-export function error(debug: Function, text: string, ...args: any[]): void {
+export function error(debug: debugFn, text: string, ...args: any[]): void {
   log('error', text, args)
   debug(text)
   console.error.apply(null, [text, ...args])

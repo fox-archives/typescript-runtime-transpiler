@@ -1,17 +1,15 @@
 {
   "root": true,
   "extends": [
+    "plugin:@typescript-eslint/recommended",
     "airbnb-typescript/base",
     "plugin:prettier/recommended",
     "prettier/@typescript-eslint"
   ],
-  // "parserOptions": {
-  //   "project": ["./packages/**/tsconfig.json"],
-  //   "projectFolderIgnoreList": [
-  //     "/node_modules/",
-  //     "/deno_modules/"
-  //   ]
-  // },
+  "parserOptions": {
+    "project": ["./tsconfig.base.json", "./packages/**/tsconfig.json"],
+    "projectFolderIgnoreList": ["/node_modules/", "/deno_modules/"]
+  },
   "rules": {
     "import/prefer-default-export": "off",
     "no-restricted-syntax": "off",
@@ -30,7 +28,12 @@
     "no-continue": "off",
     "import/no-extraneous-dependencies": "off",
     "import/no-unresolved": "off",
-    "class-methods-use-this": "off"
+    "class-methods-use-this": "off",
+    // temp
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/ban-ts-comment": "warn",
+    // sometimes needed to make typescrpt happy
+    "no-useless-return": "off"
   },
   "overrides": [
     {
