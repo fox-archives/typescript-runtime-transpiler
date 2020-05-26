@@ -2,6 +2,7 @@ import {
   callExpressionFactoryAst,
   ApiCall,
   Mod,
+  warn,
 } from 'babel-helper-deno-general'
 import { types as t } from '@babel/core'
 import type { CallExpression } from 'bt'
@@ -24,7 +25,9 @@ export function callExpressionVisitor(path) {
     const mode = apiCall.getAstOfArgNumber(2)
 
     if (mode) {
-      debug('fs.chmodSync, mode arg not supported adding unsafe placeholder')
+      const log =
+        "fs.chmodSync: 'mode' arg not supported. adding unsafe placeholder"
+      warn(log, debug)
     }
     const placeholder = t.numericLiteral(0o666)
 
@@ -55,7 +58,8 @@ export function callExpressionVisitor(path) {
     const mode = apiCall.getAstOfArgNumber(3)
 
     if (mode) {
-      debug("we don't support the third argument of copyFileSync")
+      const log = 'fs.copyFileSync: mode argument not supported.'
+      warn(log, debug)
     }
 
     path.replaceWith(callExpressionFactoryAst('Deno.copyFileSync', [src, dest]))
