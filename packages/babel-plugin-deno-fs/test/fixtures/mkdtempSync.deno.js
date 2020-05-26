@@ -1,5 +1,9 @@
-fs.mkdtempSync(prefix, options)
-fs.mkdtempSync('prefix', {})
-fs.mkdtempSync('prefix', {
-  encoding: 'utf8',
-})
+Deno.makeTempDirSync({
+  "prefix": prefix
+});
+Deno.makeTempDirSync({
+  "prefix": 'prefix'
+});
+Deno.makeTempDirSync({
+  "prefix": 'prefix'
+});

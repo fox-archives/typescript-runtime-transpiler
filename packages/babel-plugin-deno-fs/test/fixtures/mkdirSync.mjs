@@ -2,12 +2,12 @@ import fs from 'fs'
 
 fs.mkdirSync(path, options)
 fs.mkdirSync('path', {
-  recursive: true
+  recursive: true,
 })
 fs.mkdirSync('path2', {
-  mode: 'string'
+  mode: 'string',
 })
 fs.mkdirSync('path3', {
   recursive: true,
-  mode: 0o755
+  mode: 0o755,
 })

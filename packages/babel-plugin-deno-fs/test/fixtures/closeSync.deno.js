@@ -1,5 +1,5 @@
 // invalid
-Deno.closeSync() //  correct
+Deno.closeSync(); //  correct
 
-Deno.closeSync(fd)
-Deno.closeSync(2)
+Deno.closeSync(fd);
+Deno.closeSync(2);

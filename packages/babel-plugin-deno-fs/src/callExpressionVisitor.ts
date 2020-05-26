@@ -87,28 +87,27 @@ export function callExpressionVisitor(path) {
     const args = apiCall.getAstOfAllArgs()
 
     path.replaceWith(callExpressionFactoryAst('Deno.mkdirSync', args))
+  } else if (apiCall.is('fs.mkdtempSync')) {
+    /**
+     * fs.mkdtempSync(prefix[, options])
+     */
+    const prefix = apiCall.getAstOfArgNumber(1)
+
+    const objectMethodProperties = []
+    if (prefix) {
+      objectMethodProperties.push(
+        // @ts-ignore
+        t.objectProperty(t.stringLiteral('prefix'), prefix)
+      )
+    }
+    const denoOpts = t.objectExpression(objectMethodProperties)
+
+    if (Object.keys(denoOpts).length === 0) {
+      path.replaceWith(callExpressionFactoryAst('Deno.makeTempDirSync'))
+    } else {
+      path.replaceWith(
+        callExpressionFactoryAst('Deno.makeTempDirSync', [denoOpts])
+      )
+    }
   }
-  // } else if (apiCall.is('fs.mkdtempSync')) {
-  //   /**
-  //    * fs.mkdtempSync(prefix[, options])
-  //    */
-  //   const prefix = apiCall.getAstOfArgNumber(1)
-
-  //   const objectMethodProperties = []
-  //   if (prefix) {
-  //     objectMethodProperties.push(
-  //       // @ts-ignore
-  //       t.objectProperty(t.stringLiteral('prefix'), prefix)
-  //     )
-  //   }
-  //   const denoOpts = t.objectExpression(objectMethodProperties)
-
-  //   if (Object.keys(denoOpts).length === 0) {
-  //     path.replaceWith(callExpressionFactoryAst('Deno.makeTempDirSync'))
-  //   } else {
-  //     path.replaceWith(
-  //       callExpressionFactoryAst('Deno.makeTempDirSync', [denoOpts])
-  //     )
-  //   }
-  // }
 }
