@@ -1,5 +1,6 @@
 import {
   callExpressionFactoryAst,
+  callExpressionFactory,
   ApiCall,
   Mod,
   warn,
@@ -72,5 +73,37 @@ export function callExpressionVisitor(path) {
     // @ts-ignore
     mod.ensureStdImport(this.denoImports, 'denoFs', 'fs')
     path.replaceWith(callExpressionFactoryAst('denoFs.existsSync', [pathArg]))
+  } else if (apiCall.is('fs.mkdirSync')) {
+    /**
+     * fs.mkdirSync(path[, options])
+     */
+    // arguments and options the same as deno
+    const args = apiCall.getAstOfAllArgs()
+
+    path.replaceWith(callExpressionFactoryAst('Deno.mkdirSync', args))
+  } else if (apiCall.is('fs.mkdtempSync')) {
+    /**
+     * fs.mkdtempSync(prefix[, options])
+     */
+    const prefix = apiCall.getAstOfArgNumber(1)
+
+    const objectMethodProperties = []
+    if (prefix) {
+      objectMethodProperties.push(
+        // @ts-ignore
+        t.objectProperty(t.stringLiteral('prefix'), prefix)
+      )
+    }
+    const denoOpts = t.objectExpression(objectMethodProperties)
+
+    console.log('ff', prefix, denoOpts)
+
+    if (Object.keys(denoOpts).length === 0) {
+      path.replaceWith(callExpressionFactoryAst('Deno.makeTempDirSync'))
+    } else {
+      path.replaceWith(
+        callExpressionFactoryAst('Deno.makeTempDirSync', [denoOpts])
+      )
+    }
   }
 }

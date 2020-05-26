@@ -69,7 +69,7 @@ export function callExpressionFactory(
  */
 export function callExpressionFactoryAst(
   methodChainString: string,
-  callParameters: Array<
+  callParameters?: Array<
     Expression | SpreadElement | JSXNamespacedName | ArgumentPlaceholder
   >
 ) {
@@ -86,7 +86,11 @@ export function callExpressionFactoryAst(
       t.identifier(identifier)
     )
   }
-  return t.callExpression(nestedMemberExpression, callParameters)
+  if (callParameters) {
+    return t.callExpression(nestedMemberExpression, callParameters)
+  } else {
+    return t.callExpression(nestedMemberExpression, [])
+  }
 }
 
 /**

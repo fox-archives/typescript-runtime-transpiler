@@ -6,7 +6,8 @@ import {
   ObjectExpression,
   CallExpression,
 } from 'bt'
-import { createCalleeNice } from './util'
+import generate from '@babel/generator'
+import { createCalleeNice, primitiveFromAst } from './util'
 
 /**
  * An ApiCall is essentially a CallExpression, with the calle being nested
@@ -65,6 +66,13 @@ export class ApiCall {
     return this.#arguments[argNumber - 1]
   }
 
+  public getArgNumber(argNumber: argNumbers): primitive {
+    const ast = this.getAstOfArgNumber(argNumber)
+
+    const value: any = primitiveFromAst(ast)
+    return value
+  }
+
   public getAstOfAllArgs(): Array<argAst> {
     return this.#arguments
   }
@@ -90,6 +98,8 @@ export class ApiCall {
   }
 }
 
+// TODO: remove duped primitive
+type primitive = string | number | object | bigint | boolean | undefined | null
 type argAst =
   | Expression
   | SpreadElement

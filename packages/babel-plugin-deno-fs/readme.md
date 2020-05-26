@@ -41,9 +41,9 @@ blank checkbox does not imply future transpilation support
 [] fs.lstat
 [] fs.lstatSync
 [] fs.mkdir
-[] fs.mkdirSync
+[x] fs.mkdirSync
 [] fs.mkdtemp
-[] fs.mkdtempSync
+[x] fs.mkdtempSync
 [] fs.open
 [] fs.opendir
 [] fs.opendirSync
