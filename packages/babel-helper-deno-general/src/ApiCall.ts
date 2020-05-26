@@ -6,6 +6,7 @@ import {
   ObjectExpression,
   CallExpression,
 } from 'bt'
+import type { PrimitiveLike } from 't'
 import generate from '@babel/generator'
 import { createCalleeNice, primitiveFromAst } from './util'
 
@@ -66,7 +67,7 @@ export class ApiCall {
     return this.#arguments[argNumber - 1]
   }
 
-  public getArgNumber(argNumber: argNumbers): primitive {
+  public getArgNumber(argNumber: argNumbers): PrimitiveLike {
     const ast = this.getAstOfArgNumber(argNumber)
 
     const value: any = primitiveFromAst(ast)
@@ -98,8 +99,6 @@ export class ApiCall {
   }
 }
 
-// TODO: remove duped primitive
-type primitive = string | number | object | bigint | boolean | undefined | null
 type argAst =
   | Expression
   | SpreadElement

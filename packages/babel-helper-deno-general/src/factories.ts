@@ -9,6 +9,7 @@ import {
   ObjectProperty,
   ObjectExpression,
 } from 'bt'
+import type { PrimitiveLike } from 't'
 import {
   astFromPrimitive,
   toAstCallExpressionArguments,
@@ -16,14 +17,12 @@ import {
 } from './util'
 import { debug } from './util/debug'
 
-type primitive = string | number | object | bigint | boolean | undefined | null
-
 /**
  *
  */
 export function callExpressionFactory(
   methodChainString: string,
-  callParameters: Array<primitive>
+  callParameters: Array<PrimitiveLike>
 ) {
   debug('callExpressionFactoryArgs: %c, %O', methodChainString, callParameters)
   const methodChainArray = methodChainString.split('.')

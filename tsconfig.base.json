@@ -21,7 +21,8 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "bt": ["./@types/babel-types"]
+      "bt": ["./@types/babel-types"],
+      "t": ["./@types"]
     }
   }
 }

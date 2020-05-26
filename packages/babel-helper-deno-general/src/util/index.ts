@@ -1,12 +1,12 @@
 import { types as t } from '@babel/core'
 import { Expression } from 'bt'
 import generate from '@babel/generator'
+import type { PrimitiveLike } from 't'
 import { error } from '../log'
 import { debug } from './debug'
 
 // TODO: remove duped primitives
-type primitive = string | number | object | bigint | boolean | undefined | null
-export function astFromPrimitive(rawValue: primitive) {
+export function astFromPrimitive(rawValue: PrimitiveLike) {
   let value
   if (typeof rawValue === 'string') value = t.stringLiteral(rawValue)
   else if (typeof rawValue === 'bigint') {
@@ -27,7 +27,7 @@ export function astFromPrimitive(rawValue: primitive) {
 // TODO: types
 // TODO: actually do this one
 // TODO: depreacte actually
-export function primitiveFromAst(ast: any): primitive {
+export function primitiveFromAst(ast: any): PrimitiveLike {
   let value
   if (
     t.isStringLiteral(ast) ||
@@ -65,7 +65,7 @@ export function primitiveFromAst(ast: any): primitive {
  * callExpression 'arguments' option
  */
 export function toAstCallExpressionArguments(
-  args: Array<primitive>
+  args: Array<PrimitiveLike>
 ): Array<Expression> {
   const astCallParameters: Array<Expression> = []
   for (const callParameter in args) {
@@ -74,7 +74,7 @@ export function toAstCallExpressionArguments(
   return astCallParameters
 }
 
-export function isLastParameterObject(args: Array<primitive>) {
+export function isLastParameterObject(args: Array<PrimitiveLike>) {
   const lastParam = args[args.length - 1]
   return typeof lastParam === 'object' && !Array.isArray(lastParam)
 }
