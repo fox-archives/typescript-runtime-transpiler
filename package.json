@@ -44,13 +44,5 @@
     "standard-version": "^8.0.0",
     "ts-node": "^8.10.1",
     "typescript": "^3.8.3"
-  },
-  "dependencies": {
-    "cz-conventional-changelog": "^3.2.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }
