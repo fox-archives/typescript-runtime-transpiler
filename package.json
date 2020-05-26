@@ -27,8 +27,6 @@
     "@types/jest": "^25.2.1",
     "@types/node": "^13.13.6",
     "@typescript-eslint/eslint-plugin": "^2.24.0",
-    "commitizen": "^4.1.2",
-    "conventional-changelog": "^3.1.21",
     "conventional-changelog-cli": "^2.0.34",
     "cross-env": "^7.0.2",
     "eslint": "^7.0.0",

@@ -10,8 +10,6 @@ importers:
       '@types/jest': 25.2.1
       '@types/node': 13.13.6
       '@typescript-eslint/eslint-plugin': 2.33.0_eslint@7.0.0+typescript@3.8.3
-      commitizen: 4.1.2
-      conventional-changelog: 3.1.21
       conventional-changelog-cli: 2.0.34
       cross-env: 7.0.2
       eslint: 7.0.0
@@ -37,8 +35,6 @@ importers:
       '@types/jest': ^25.2.1
       '@types/node': ^13.13.6
       '@typescript-eslint/eslint-plugin': ^2.24.0
-      commitizen: ^4.1.2
-      conventional-changelog: ^3.1.21
       conventional-changelog-cli: ^2.0.34
       cross-env: ^7.0.2
       cz-conventional-changelog: ^3.2.0
@@ -642,6 +638,7 @@ packages:
     resolution:
       integrity: sha512-v9kIhKwjeZThiWrLmj0y17CWoyddASLj9O2yvbZkbvw/N3rWOYy9zkV66ursAoVr0mV15bL8g0c4QZUE6cdDoQ==
   /@commitlint/execute-rule/8.3.4:
+    dev: false
     engines:
       node: '>=4'
     optional: true
@@ -656,6 +653,7 @@ packages:
       cosmiconfig: 5.2.1
       lodash: 4.17.15
       resolve-from: 5.0.0
+    dev: false
     engines:
       node: '>=4'
     optional: true
@@ -667,6 +665,7 @@ packages:
       lodash: 4.17.15
       resolve-from: 5.0.0
       resolve-global: 1.0.0
+    dev: false
     engines:
       node: '>=4'
     optional: true
@@ -2549,6 +2548,7 @@ packages:
     dependencies:
       core-js: 2.6.11
       regenerator-runtime: 0.11.1
+    dev: false
     optional: true
     resolution:
       integrity: sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
@@ -2704,6 +2704,7 @@ packages:
     resolution:
       integrity: sha512-AKcdTnFSWATd5/GCPRxr2ChwIJ85CeyrEyjRHlKxQ56d4XJMGym0uAiKn0xbLOGOl3+yRpOTi484dVCEc5AUzQ==
   /cachedir/2.2.0:
+    dev: false
     engines:
       node: '>=6'
     resolution:
@@ -3039,6 +3040,7 @@ packages:
       minimist: 1.2.5
       strip-bom: 4.0.0
       strip-json-comments: 3.0.1
+    dev: false
     engines:
       node: '>= 10'
     hasBin: true
@@ -3321,6 +3323,7 @@ packages:
     resolution:
       integrity: sha512-ZGecVZPEo3aC75VVE4nu85589dDhpMyqfqgUM5Myq6wfKWiNqhDJLSDMsc8qKXshZoY7dqs1hR0H/15kI/G2jQ==
   /conventional-commit-types/3.0.0:
+    dev: false
     resolution:
       integrity: sha512-SmmCYnOniSsAa9GqWOeLqc179lfr5TRu5b4QFDkbsrJ5TZjPJx85wtOr3zn+1dbeNiXDKGPbZ72IKbPhLXh/Lg==
   /conventional-commits-filter/2.0.6:
@@ -3403,6 +3406,7 @@ packages:
       integrity: sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
   /core-js/2.6.11:
     deprecated: 'core-js@<3 is no longer maintained and not recommended for usage due to the number of issues. Please, upgrade your dependencies to the actual version of core-js@3.'
+    dev: false
     optional: true
     requiresBuild: true
     resolution:
@@ -3512,6 +3516,7 @@ packages:
       lodash.map: 4.6.0
       longest: 2.0.1
       word-wrap: 1.2.3
+    dev: false
     engines:
       node: '>= 10'
     optionalDependencies:
@@ -3661,6 +3666,7 @@ packages:
     resolution:
       integrity: sha512-xmHIy4F3scKVwMsQ4WnVaS8bHOx0DmVwRywosKhaILI0ywMDWPtBSku2HNxRvF7jtwDRsoEwYQSfbxj8b7RlJQ==
   /detect-file/1.0.0:
+    dev: false
     engines:
       node: '>=0.10.0'
     resolution:
@@ -4214,6 +4220,7 @@ packages:
   /expand-tilde/2.0.2:
     dependencies:
       homedir-polyfill: 1.0.3
+    dev: false
     engines:
       node: '>=0.10.0'
     resolution:
@@ -4376,9 +4383,11 @@ packages:
     dependencies:
       findup-sync: 3.0.0
       merge: 1.2.1
+    dev: false
     resolution:
       integrity: sha512-8MWIBRgJi/WpjjfVXumjPKCtmQ10B+fjx6zmSA+770GMJirLhWIzg8l763rhjl9xaeaHbnxPNRQKq2mgMhr+aw==
   /find-root/1.1.0:
+    dev: false
     resolution:
       integrity: sha512-NKfW6bec6GfKc0SGx1e07QZY9PE99u0Bft/0rzSD5k3sO/vwkVUpDUKVm5Gpp5Ue3YfShPFTX2070tDs5kB9Ng==
   /find-up/1.1.2:
@@ -4429,6 +4438,7 @@ packages:
       is-glob: 4.0.1
       micromatch: 3.1.10
       resolve-dir: 1.0.1
+    dev: false
     engines:
       node: '>= 0.10'
     resolution:
@@ -4749,6 +4759,7 @@ packages:
       minimatch: 3.0.4
       once: 1.4.0
       path-is-absolute: 1.0.1
+    dev: false
     resolution:
       integrity: sha512-hkLPepehmnKk41pUGm3sYxoFs/umurYfYJCerbXEyFIWcAzvpipAgVkBqqT9RBKMGjnq6kMuyYwha6csxbiM1A==
   /glob/7.1.6:
@@ -4764,6 +4775,7 @@ packages:
   /global-dirs/0.1.1:
     dependencies:
       ini: 1.3.5
+    dev: false
     engines:
       node: '>=4'
     optional: true
@@ -4774,6 +4786,7 @@ packages:
       global-prefix: 1.0.2
       is-windows: 1.0.2
       resolve-dir: 1.0.1
+    dev: false
     engines:
       node: '>=0.10.0'
     resolution:
@@ -4785,6 +4798,7 @@ packages:
       ini: 1.3.5
       is-windows: 1.0.2
       which: 1.3.1
+    dev: false
     engines:
       node: '>=0.10.0'
     resolution:
@@ -4922,6 +4936,7 @@ packages:
   /homedir-polyfill/1.0.3:
     dependencies:
       parse-passwd: 1.0.0
+    dev: false
     engines:
       node: '>=0.10.0'
     resolution:
@@ -5135,6 +5150,7 @@ packages:
       string-width: 2.1.1
       strip-ansi: 5.2.0
       through: 2.3.8
+    dev: false
     engines:
       node: '>=6.0.0'
     resolution:
@@ -6294,6 +6310,7 @@ packages:
     resolution:
       integrity: sha1-dWy1FQyjum8RCFp4hJZF8Yj4Xzc=
   /lodash.map/4.6.0:
+    dev: false
     resolution:
       integrity: sha1-dx7Hg540c9nEzeKLGTlMNWL09tM=
   /lodash.memoize/4.1.2:
@@ -6348,6 +6365,7 @@ packages:
     resolution:
       integrity: sha512-9fkkDevMefjg0mmzWFBW8YkFP91OrizzkW3diF7CpG+S2EYdy4+TVfGwz1zeF8x7hCx1ovSPTOE9Ngib74qqUg==
   /longest/2.0.1:
+    dev: false
     engines:
       node: '>=0.10.0'
     resolution:
@@ -6539,6 +6557,7 @@ packages:
     resolution:
       integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==
   /merge/1.2.1:
+    dev: false
     resolution:
       integrity: sha512-VjFo4P5Whtj4vsLzsYBu5ayHhoHJ0UqNm7ibvShmbmoz7tGi0vXaoJbGdB+GmDMLUdg8DpQXEIeVDAe8MaABvQ==
   /merge2/1.3.0:
@@ -7311,6 +7330,7 @@ packages:
     resolution:
       integrity: sha512-OOY5b7PAEFV0E2Fir1KOkxchnZNCdowAJgQ5NuxjpBKTRP3pQhwkrkxqQjeoKJ+fO7bCpmIZaogI4eZGDMEGOw==
   /parse-passwd/1.0.0:
+    dev: false
     engines:
       node: '>=0.10.0'
     resolution:
@@ -7872,6 +7892,7 @@ packages:
     resolution:
       integrity: sha512-6tDA8g98We0zd0GvVeMT9arEOnTw9qM03L9cJXaCjrip1OO764RDBLBfrB4cwzNGDj5OA5ioymC9GkizgWJDUg==
   /regenerator-runtime/0.11.1:
+    dev: false
     optional: true
     resolution:
       integrity: sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
@@ -7997,6 +8018,7 @@ packages:
     dependencies:
       expand-tilde: 2.0.2
       global-modules: 1.0.0
+    dev: false
     engines:
       node: '>=0.10.0'
     resolution:
@@ -8019,6 +8041,7 @@ packages:
   /resolve-global/1.0.0:
     dependencies:
       global-dirs: 0.1.1
+    dev: false
     engines:
       node: '>=8'
     optional: true
@@ -8748,6 +8771,7 @@ packages:
     resolution:
       integrity: sha512-laJTa3Jb+VQpaC6DseHhF7dXVqHTfJPCRDaEbid/drOhgitgYku/letMUqOXFoWV0zIIUbjpdH2t+tYj4bQMRQ==
   /strip-json-comments/3.0.1:
+    dev: false
     engines:
       node: '>=8'
     resolution:
