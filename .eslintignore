@@ -4,12 +4,9 @@
 # test
 **/test/fixtures/**
 
-# packages
-**/node_modules/**
-
 # build
 **/build/**
 **/dist/**
 
 # packages
-node_modules/
+**/node_modules/**
