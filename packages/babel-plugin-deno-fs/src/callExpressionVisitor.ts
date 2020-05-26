@@ -32,9 +32,11 @@ export function callExpressionVisitor(path) {
     }
     const placeholder = t.numericLiteral(0o666)
 
-    path.replaceWith(
-      callExpressionFactoryAst('Deno.chmodSync', [pathArg, placeholder])
-    )
+    const astArgs: any = []
+    if (pathArg) astArgs.push(pathArg)
+    if (placeholder) astArgs.push(placeholder)
+
+    path.replaceWith(callExpressionFactoryAst('Deno.chmodSync', astArgs))
   } else if (apiCall.is('fs.chownSync')) {
     /**
      * fs.chownSync(path, uid, gid)
@@ -49,7 +51,11 @@ export function callExpressionVisitor(path) {
      */
     const fd = apiCall.getAstOfArgNumber(1)
 
-    path.replaceWith(callExpressionFactoryAst('Deno.closeSync', [fd]))
+    if (fd) {
+      path.replaceWith(callExpressionFactoryAst('Deno.closeSync', [fd]))
+    } else {
+      path.replaceWith(callExpressionFactoryAst('Deno.closeSync', []))
+    }
   } else if (apiCall.is('fs.copyFileSync')) {
     /**
      * fs.copyFileSync(src, dest[, mode])
@@ -81,29 +87,28 @@ export function callExpressionVisitor(path) {
     const args = apiCall.getAstOfAllArgs()
 
     path.replaceWith(callExpressionFactoryAst('Deno.mkdirSync', args))
-  } else if (apiCall.is('fs.mkdtempSync')) {
-    /**
-     * fs.mkdtempSync(prefix[, options])
-     */
-    const prefix = apiCall.getAstOfArgNumber(1)
-
-    const objectMethodProperties = []
-    if (prefix) {
-      objectMethodProperties.push(
-        // @ts-ignore
-        t.objectProperty(t.stringLiteral('prefix'), prefix)
-      )
-    }
-    const denoOpts = t.objectExpression(objectMethodProperties)
-
-    console.log('ff', prefix, denoOpts)
-
-    if (Object.keys(denoOpts).length === 0) {
-      path.replaceWith(callExpressionFactoryAst('Deno.makeTempDirSync'))
-    } else {
-      path.replaceWith(
-        callExpressionFactoryAst('Deno.makeTempDirSync', [denoOpts])
-      )
-    }
   }
+  // } else if (apiCall.is('fs.mkdtempSync')) {
+  //   /**
+  //    * fs.mkdtempSync(prefix[, options])
+  //    */
+  //   const prefix = apiCall.getAstOfArgNumber(1)
+
+  //   const objectMethodProperties = []
+  //   if (prefix) {
+  //     objectMethodProperties.push(
+  //       // @ts-ignore
+  //       t.objectProperty(t.stringLiteral('prefix'), prefix)
+  //     )
+  //   }
+  //   const denoOpts = t.objectExpression(objectMethodProperties)
+
+  //   if (Object.keys(denoOpts).length === 0) {
+  //     path.replaceWith(callExpressionFactoryAst('Deno.makeTempDirSync'))
+  //   } else {
+  //     path.replaceWith(
+  //       callExpressionFactoryAst('Deno.makeTempDirSync', [denoOpts])
+  //     )
+  //   }
+  // }
 }

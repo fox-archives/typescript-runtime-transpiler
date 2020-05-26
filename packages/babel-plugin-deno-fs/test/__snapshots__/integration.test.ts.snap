@@ -1,14 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`integration: plugin-fs snapshot: a-thru-l-sync 1`] = `
-"import * as denoFs from \\"https://deno.land/x/std@0.53.0/fs/mod.ts\\";
+exports[`integration: plugin-fs snapshot: chmodSync 1`] = `
+"// invalid
+Deno.chmodSync(438);
+Deno.chmodSync(path, 438); // correct
+
 Deno.chmodSync(path, 438);
-denoFs.existsSync(path);"
+Deno.chmodSync('string', 438); // fs.chmodSync(Buffer.from(), mode)
+// fs.chmodSync(new URL(), mode)
+// fs.chmodSync('string2', 'modeString')
+
+Deno.chmodSync('string3', 438);"
 `;
 
-exports[`integration: plugin-fs snapshot: normal 1`] = `
-"Deno.chmodSync(path, 438);
-Deno.chownSync(path, uid, gid);
-Deno.copyFileSync(src, dest);
-Deno.copyFileSync(src, dest);"
+exports[`integration: plugin-fs snapshot: chownSync 1`] = `
+"Deno.chownSync(path, mode);
+Deno.chownSync('string', mode); // fs.chownSync(Buffer.from(), mode)
+// fs.chownSync(new URL(), mode)
+// fs.chownSync('string2', 'modeString')
+
+Deno.chownSync('string3', 0o755);"
+`;
+
+exports[`integration: plugin-fs snapshot: closeSync 1`] = `
+"// invalid
+Deno.closeSync(); //  correct
+
+Deno.closeSync(fd);
+Deno.closeSync(2);"
+`;
+
+exports[`integration: plugin-fs snapshot: copyFileSync 1`] = `
+"Deno.copyFileSync(src, dest);
+Deno.copyFileSync(src, dest); // fs.copyFileSync(Buffer.from(), Buffer.from(), mode)
+// fs.copyFileSync(new URL(), new URL(), mode)"
+`;
+
+exports[`integration: plugin-fs snapshot: existsSync 1`] = `
+"import * as denoFs from \\"https://deno.land/x/std@0.53.0/fs/mod.ts\\";
+denoFs.existsSync(path); // fs.existsSync(Buffer.from())
+// fs.existsSync(new URL())"
+`;
+
+exports[`integration: plugin-fs snapshot: mkdirSync 1`] = `
+"Deno.mkdirSync(path, options);
+Deno.mkdirSync('path', {
+  recursive: true
+});
+Deno.mkdirSync('path2', {
+  mode: 'string'
+});
+Deno.mkdirSync('path3', {
+  recursive: true,
+  mode: 0o755
+});"
+`;
+
+exports[`integration: plugin-fs snapshot: mkdtempSync 1`] = `
+"fs.mkdtempSync(prefix, options);
+fs.mkdtempSync('prefix', {});
+fs.mkdtempSync('prefix', {
+  encoding: 'utf8'
+});"
 `;
