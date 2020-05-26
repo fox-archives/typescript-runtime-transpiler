@@ -8,7 +8,7 @@ import {
 } from 'bt'
 import type { PrimitiveLike } from 't'
 import { primitiveFromAst } from './converters'
-import { debug } from './util/debug'
+import { debug} from './util/debug'
 import { isLastAstParameterObject } from './util'
 
 export type argAst =

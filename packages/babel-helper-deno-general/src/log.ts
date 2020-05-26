@@ -1,34 +1,49 @@
 import path from 'path'
 import fs from 'fs'
+import util from 'util'
 
 type logSeverity = 'info' | 'warn' | 'error'
-function log(logSeverity: logSeverity, text: string): void {
+/**
+ * @desc
+ * @argument {string[]} args - extra args to pass to console.log
+ * @todo fix so this works as intended
+ */
+function log(logSeverity: logSeverity, text: string, ...args: any[]): void {
   const babelDenoLogFile = path.join(process.cwd(), '.babel-deno.log')
+
+  let formattedString;
+  if (args) {
+    formattedString = util.format.apply(null, [text, ...args])
+  } else {
+    formattedString = text
+  }
 
   try {
     fs.appendFileSync(
       babelDenoLogFile,
-      `${new Date().toUTCString()}: ${text}\n`
+      `${new Date().toUTCString()}: ${formattedString}\n`
     )
   } catch (err) {
     console.error(err)
     if (err.EEXISTS) {
       fs.writeFileSync(babelDenoLogFile, '')
-      log(logSeverity, text)
+      log(logSeverity, text, args)
     }
   }
 }
 
-export function info(text: string) {
-  return log('info', text)
+export function info(text: string, ...args: any[]): void {
+  log('info', text, args)
 }
 
-export function warn(text: string, debug: Function) {
+export function warn(debug: Function, text: string, ...args: any[]): void {
+  log('warn', text, args)
   debug(text)
-  return log('warn', text)
 }
 
-export function error(text: string, debug: Function) {
+export function error(debug: Function, text: string, ...args: any[]): void {
+  log('error', text, args)
   debug(text)
-  return log('error', text)
+  console.error.apply(null, [text, ...args])
+  throw new Error(text)
 }

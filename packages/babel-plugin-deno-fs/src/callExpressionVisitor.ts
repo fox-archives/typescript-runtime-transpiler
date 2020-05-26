@@ -1,6 +1,5 @@
 import {
   callExpressionFactoryAst,
-  callExpressionFactory,
   ApiCall,
   Mod,
   warn,
@@ -28,7 +27,7 @@ export function callExpressionVisitor(path) {
     if (mode) {
       const log =
         "fs.chmodSync: 'mode' arg not supported. adding unsafe placeholder"
-      warn(log, debug)
+      warn(debug, log)
     }
     const placeholder = t.numericLiteral(0o666)
 
@@ -66,7 +65,7 @@ export function callExpressionVisitor(path) {
 
     if (mode) {
       const log = 'fs.copyFileSync: mode argument not supported.'
-      warn(log, debug)
+      warn(debug, log)
     }
 
     path.replaceWith(callExpressionFactoryAst('Deno.copyFileSync', [src, dest]))

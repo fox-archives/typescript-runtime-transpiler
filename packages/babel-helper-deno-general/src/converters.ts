@@ -58,10 +58,8 @@ export function primitiveFromAst(ast: any): Primitive {
     return ast.name
   }
 
-  const log = 'unexpected value in primitiveFromAst'
-  console.error('unexpected value in primitveFromAst: %O', ast)
-  error(log, debug)
-  throw new Error(log)
+  error(debug, 'unexpected value in primitiveFromAst: %O', ast)
+  return
 }
 
 /**
