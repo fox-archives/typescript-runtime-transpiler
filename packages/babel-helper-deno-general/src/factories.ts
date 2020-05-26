@@ -13,12 +13,17 @@ import type { PrimitiveLike } from 't'
 import {
   astFromPrimitive,
   toAstCallExpressionArguments,
-  isLastParameterObject,
-} from './util'
+} from './converters'
+import { isLastParameterObject } from './util'
 import { debug } from './util/debug'
 
 /**
- *
+ * factory functions to be called by plugins to
+ * create asts
+ */
+
+/**
+ * create a call expression factory from raw primitives
  */
 export function callExpressionFactory(
   methodChainString: string,

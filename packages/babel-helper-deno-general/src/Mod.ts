@@ -1,7 +1,3 @@
-import { addNamed } from '@babel/helper-module-imports'
-import { types as t, template } from '@babel/core'
-import { expressionStatement } from '@babel/types'
-
 export class Mod {
   node: any
 
@@ -10,7 +6,8 @@ export class Mod {
   }
 
   /**
-   *
+   * ensure we have an import statement at the top of a file
+   * for a deno std lib
    */
   public ensureStdImport(
     denoImports: object,

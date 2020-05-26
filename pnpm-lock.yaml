@@ -79,6 +79,7 @@ importers:
       rollup: ^2.10.9
   packages/babel-helper-deno-general:
     dependencies:
+      '@babel/generator': 7.9.6
       debug: 4.1.1
     devDependencies:
       '@babel/core': 7.9.6
@@ -86,6 +87,7 @@ importers:
       typescript: 3.9.3
     specifiers:
       '@babel/core': ^7.9.6
+      '@babel/generator': ^7.9.6
       debug: ^4.1.1
       rimraf: ^3.0.2
       typescript: ^3.9.3
@@ -172,6 +174,7 @@ importers:
       '@babel/preset-flow': 7.9.0
       '@babel/preset-typescript': 7.9.0
       '@rollup/plugin-commonjs': 12.0.0
+      babel-plugin-deno-fs-promises: 'link:../babel-plugin-deno-fs-promises'
     devDependencies:
       rimraf: 3.0.2
       typescript: 3.9.3
@@ -182,6 +185,7 @@ importers:
       '@babel/preset-flow': ^7.9.0
       '@babel/preset-typescript': ^7.9.0
       '@rollup/plugin-commonjs': ^12.0.0
+      babel-plugin-deno-fs-promises: 'workspace:^0.4.1'
       rimraf: ^3.0.2
       typescript: ^3.9.3
 lockfileVersion: 5.1

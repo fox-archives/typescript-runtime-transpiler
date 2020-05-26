@@ -1,9 +1,18 @@
-// doesn't contain symbol and includes object
-export type PrimitiveLike =
+/**
+ * doesn't contain symbol
+ */
+export type Primitive =
   | string
   | number
-  | object
   | bigint
   | boolean
   | undefined
   | null
+  | RegExp
+
+/**
+ * includes object
+ */
+export type PrimitiveLike =
+  | Primitive
+  | object

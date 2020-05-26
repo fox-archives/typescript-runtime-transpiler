@@ -1,8 +1,6 @@
 import path from 'path'
 import fs from 'fs'
-// import { debug } from './util/debug'
 
-// make writing more efficient
 type logSeverity = 'info' | 'warn' | 'error'
 function log(logSeverity: logSeverity, text: string): void {
   const babelDenoLogFile = path.join(process.cwd(), '.babel-deno.log')

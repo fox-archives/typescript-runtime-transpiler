@@ -33,6 +33,7 @@
     "@babel/core": "^7.9.6"
   },
   "dependencies": {
+    "@babel/generator": "^7.9.6",
     "debug": "^4.1.1"
   }
 }
