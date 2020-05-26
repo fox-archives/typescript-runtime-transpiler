@@ -9,6 +9,18 @@
     "watch": "tsc --build --watch",
     "test": "jest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eankeen/deno-babel.git",
+    "directory": "packages/babel-helper-deno-general"
+  },
+  "bugs": {
+    "url": "https://github.com/eankeen/deno-babel/issues"
+  },
+  "homepage": "https://github.com/eankeen/deno-babel#readme",
+  "engines": {
+    "node": ">=14.3"
+  },
   "keywords": [],
   "author": "Edwin Kofler",
   "license": "MIT",

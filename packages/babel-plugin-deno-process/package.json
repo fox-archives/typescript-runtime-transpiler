@@ -12,6 +12,18 @@
   "keywords": [],
   "author": "Edwin Kofler",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eankeen/deno-babel.git",
+    "directory": "packages/babel-plugin-deno-process"
+  },
+  "bugs": {
+    "url": "https://github.com/eankeen/deno-babel/issues"
+  },
+  "homepage": "https://github.com/eankeen/deno-babel#readme",
+  "engines": {
+    "node": ">=14.3"
+  },
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/types": "^7.9.6",
