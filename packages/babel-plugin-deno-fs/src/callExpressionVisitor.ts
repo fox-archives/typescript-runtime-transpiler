@@ -66,7 +66,7 @@ export function callExpressionVisitor(path) {
     const pathArg = apiCall.getAstOfArgNumber(1)
 
     // @ts-ignore
-    mod.ensureStdImport(this.denoImports, 'denoFs')
+    mod.ensureStdImport(this.denoImports, 'denoFs', 'fs')
     path.replaceWith(callExpressionFactoryAst('denoFs.existsSync', [pathArg]))
   }
 }

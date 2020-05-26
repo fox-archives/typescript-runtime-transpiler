@@ -10,8 +10,18 @@ export class Mod {
     this.node = node
   }
 
-  public ensureStdImport(denoImports: object, moduleName: string): void {
+  /**
+   *
+   */
+  public ensureStdImport(
+    denoImports: object,
+    moduleName: string,
+    pathName: string
+  ): void {
     // @ts-ignore
-    denoImports.add(moduleName)
+    denoImports.add({
+      moduleName,
+      pathName,
+    })
   }
 }
