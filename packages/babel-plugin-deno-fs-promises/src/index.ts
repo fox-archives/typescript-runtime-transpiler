@@ -1,7 +1,8 @@
+import { declare } from '@babel/helper-plugin-utils'
 import { importDeclarationVisitor } from './importDeclarationVisitor'
 import { callExpressionVisitor } from './callExpressionVisitor'
 
-export default function declare(api, options) {
+export default declare((api, options) => {
   api.assertVersion(7)
 
   return {
@@ -11,4 +12,4 @@ export default function declare(api, options) {
       CallExpression: (path) => callExpressionVisitor(path),
     },
   }
-}
+})

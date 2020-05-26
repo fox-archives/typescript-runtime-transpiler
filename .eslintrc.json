@@ -25,7 +25,8 @@
     "prefer-destructuring": "off",
     "no-continue": "off",
     "import/no-extraneous-dependencies": "off",
-    "import/no-unresolved": "off"
+    "import/no-unresolved": "off",
+    "class-methods-use-this": "off"
   },
   "overrides": [
     {

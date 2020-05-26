@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`integration: plugin-fs snapshot: a-thru-l-sync 1`] = `"Deno.chmodSync(path, 438);"`;
+
 exports[`integration: plugin-fs snapshot: normal 1`] = `
-"Deno.chmodSync(path, mode);
+"Deno.chmodSync(path, 438);
 Deno.chownSync(path, uid, gid);
 Deno.copyFileSync(src, dest);
 Deno.copyFileSync(src, dest);"
