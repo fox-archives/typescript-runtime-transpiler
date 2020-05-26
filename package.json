@@ -1,7 +1,7 @@
 {
   "name": "babel-deno",
   "private": true,
-  "version": "0.3.0",
+  "version": "0.4.1",
   "description": "Tools for transpiling Node APIs to their Deno counterparts",
   "scripts": {
     "clean": "lerna run clean",
@@ -12,7 +12,7 @@
     "lint:js:fix": "eslint --fix .",
     "lint:misc": "prettier --check .",
     "lint:misc:fix": "prettier --write .",
-    "version": "lerna version && yarn conventional-changelog -p angular -i changelog.md"
+    "version": "lerna version && node -e \"/* TODO: cleanup */ const a = require('./packages/babel-preset-deno/package.json').version; let content = require('./packages/babel-preset-deno/package.json'); content.version = a; require('fs').writeFileSync('package.json', JSOON.stringify(content, null, 2))\" && conventional-changelog -p angular -i changelog.md -s && git commit --no-edit --no-verify --amend"
   },
   "engines": {
     "node": ">=14.3.0"
