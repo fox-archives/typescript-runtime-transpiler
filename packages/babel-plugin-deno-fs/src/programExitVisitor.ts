@@ -1,4 +1,4 @@
-import template from '@babel/template'
+import { template } from '@babel/core'
 
 export function programExitVisitor(path) {
   // @ts-ignore

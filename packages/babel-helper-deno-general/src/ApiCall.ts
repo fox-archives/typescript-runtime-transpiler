@@ -7,7 +7,6 @@ import {
   CallExpression,
 } from 'bt'
 import type { PrimitiveLike } from 't'
-import generate from '@babel/generator'
 import { createCalleeNice, primitiveFromAst } from './util'
 
 /**

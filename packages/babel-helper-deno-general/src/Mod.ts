@@ -1,6 +1,5 @@
 import { addNamed } from '@babel/helper-module-imports'
-import template from '@babel/template'
-import { types as t } from '@babel/core'
+import { types as t, template } from '@babel/core'
 import { expressionStatement } from '@babel/types'
 
 export class Mod {
