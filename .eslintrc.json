@@ -7,13 +7,13 @@
     "prettier/@typescript-eslint"
   ],
   "parserOptions": {
-    "project": [
-      "./tsconfig.base.json",
-      "./packages/tsconfig.helper.json",
-      "./packages/tsconfig.plugin.json",
-      "./packages/**/tsconfig.json"
-    ],
-    "projectFolderIgnoreList": ["/node_modules/", "/deno_modules/"]
+    // "project": [
+    //   "./tsconfig.base.json",
+    //   "./packages/tsconfig.helper.json",
+    //   "./packages/tsconfig.plugin.json",
+    //   "./packages/**/tsconfig.json"
+    // ],
+    "projectFolderIgnoreList": ["/node_modules/", "/deno_modules/packages/**/"]
   },
   "rules": {
     "import/prefer-default-export": "off",
@@ -38,7 +38,12 @@
     "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/ban-ts-comment": "warn",
     // sometimes needed to make typescrpt happy
-    "no-useless-return": "off"
+    "no-useless-return": "off",
+
+    // so we don't have to specify parserOptions.project
+    // TODO: reenable sometime
+    "@typescript-eslint/no-implied-eval": "off",
+    "@typescript-eslint/no-throw-literal": "off"
   },
   "overrides": [
     {
