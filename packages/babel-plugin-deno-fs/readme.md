@@ -13,7 +13,7 @@ blank checkbox does not imply future transpilation support
 [x] fs.close
 [] fs.closeSync
 [] fs.constants
-[] fs.copyFile 
+[] fs.copyFile
 [x] fs.copyFileSync
 [] fs.createReadStrm
 [] fs.createWriteStream

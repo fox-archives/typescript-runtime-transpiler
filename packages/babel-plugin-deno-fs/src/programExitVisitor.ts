@@ -1,6 +1,6 @@
 import { template } from '@babel/core'
 
-export function programExitVisitor(path) {
+export function programExitVisitor(path: any) {
   // @ts-ignore
   for (const { moduleName, pathName } of this.denoImports) {
     const version = '0.53.0'

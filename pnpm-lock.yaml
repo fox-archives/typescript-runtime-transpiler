@@ -4,7 +4,9 @@ importers:
       '@babel/core': 7.9.6
       '@babel/types': 7.9.6
       '@types/babel__core': 7.1.7
+      '@types/babel__generator': 7.6.1
       '@types/babel__traverse': 7.0.11
+      '@types/debug': 4.1.5
       '@types/jest': 25.2.3
       '@types/node': 14.0.5
       '@typescript-eslint/eslint-plugin': 3.0.1_eslint@7.1.0+typescript@3.9.3
@@ -29,7 +31,9 @@ importers:
       '@babel/core': ^7.9.6
       '@babel/types': ^7.9.6
       '@types/babel__core': ^7.1.7
+      '@types/babel__generator': ^7.6.1
       '@types/babel__traverse': ^7.0.11
+      '@types/debug': ^4.1.5
       '@types/jest': ^25.2.3
       '@types/node': ^14.0.5
       '@typescript-eslint/eslint-plugin': ^3.0.1
@@ -601,6 +605,14 @@ packages:
       lodash: 4.17.15
     resolution:
       integrity: sha512-b3rAHSjbxy6VEAvlxM8OV/0X4XrG72zoxme6q1MOoe2vd0bEc+TwayhuC1+Dfgqh1QEG+pj7atQqvUprHIccsg==
+  /@babel/types/7.10.0:
+    dependencies:
+      '@babel/helper-validator-identifier': 7.9.5
+      lodash: 4.17.15
+      to-fast-properties: 2.0.0
+    dev: true
+    resolution:
+      integrity: sha512-t41W8yWFyQFPOAAvPvjyRhejcLGnJTA3iRpFcDbEKwVJ3UnHQePFzLk8GagTsucJlImyNwrGikGsYURrWbQG8w==
   /@babel/types/7.9.6:
     dependencies:
       '@babel/helper-validator-identifier': 7.9.5
@@ -1861,7 +1873,7 @@ packages:
       integrity: sha512-RL62NqSFPCDK2FM1pSDH0scHpJvsXtZNiYlMB73DgPBaG1E38ZYVL+ei5EkWRbr+KC4YNiAUNBnRj+bgwpgjMw==
   /@types/babel__generator/7.6.1:
     dependencies:
-      '@babel/types': 7.9.6
+      '@babel/types': 7.10.0
     dev: true
     resolution:
       integrity: sha512-bBKm+2VPJcMRVwNhxKu8W+5/zT7pwNEqeokFOmbvVSqGzFneNxYcEBro9Ac7/N9tlsaPYnZLK8J1LWKkMsLAew==
@@ -1882,6 +1894,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-rr+OQyAjxze7GgWrSaJwydHStIhHq2lvY3BOC2Mj7KnzI7XK0Uw1TOOdI9lDoajEbSWLiYgoo4f1R51erQfhPQ==
+  /@types/debug/4.1.5:
+    dev: true
+    resolution:
+      integrity: sha512-Q1y515GcOdTHgagaVFhHnIFQ38ygs/kmxdNpvpou+raI9UO3YZcHDngBSYKQklcKlvA7iuQlmIKbzvmxcOE9CQ==
   /@types/eslint-visitor-keys/1.0.0:
     dev: true
     resolution:
@@ -6549,7 +6565,7 @@ packages:
   /mkdirp-promise/5.0.1:
     dependencies:
       mkdirp: 1.0.4
-    deprecated: 'This package is broken and no longer maintained. ''mkdirp'' itself supports promises now, please switch to that.'
+    deprecated: "This package is broken and no longer maintained. 'mkdirp' itself supports promises now, please switch to that."
     dev: true
     engines:
       node: '>=4'

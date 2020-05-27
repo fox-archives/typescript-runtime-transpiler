@@ -1,4 +1,4 @@
-export function importDeclarationVisitor(path) {
+export function importDeclarationVisitor(path: any) {
   const { node } = path
   const { source } = node
 

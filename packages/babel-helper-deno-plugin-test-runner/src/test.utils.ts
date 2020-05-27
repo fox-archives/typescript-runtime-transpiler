@@ -59,7 +59,7 @@ export async function readTranspileAndWrite(
  * @desc gets all files ending in .mjs and returns their fileNames (
  * without the prefix)
  */
-export function getTestFiles(fixturesFolder): Array<string> {
+export function getTestFiles(fixturesFolder: any): Array<string> {
   const fixtureFiles = fs.readdirSync(fixturesFolder, { withFileTypes: true })
   return fixtureFiles
     .filter((dirent) => dirent.isDirectory)

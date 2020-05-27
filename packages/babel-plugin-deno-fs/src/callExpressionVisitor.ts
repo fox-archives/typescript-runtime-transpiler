@@ -8,7 +8,7 @@ import { types as t } from '@babel/core'
 import type { CallExpression } from 'bt'
 import { debug } from './util/debug'
 
-export function callExpressionVisitor(path) {
+export function callExpressionVisitor(path: any) {
   const { node }: { node: CallExpression } = path
 
   // ex. could be ArrowFunctionExpression etc. Ensure it's not

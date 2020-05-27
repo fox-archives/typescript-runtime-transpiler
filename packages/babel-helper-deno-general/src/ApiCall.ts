@@ -115,11 +115,11 @@ export class ApiCall {
  * end of the chain
  * @params {MemberExpression}
  */
-export function createCalleeNice(parentMemberExpression): Array<string> {
+export function createCalleeNice(parentMemberExpression: any): Array<string> {
   // this really is an array of 'properties' of those memberExpression
   const memberExpressionArray: Array<string> = []
 
-  const walkUp = (currentParentMemberExpression) => {
+  const walkUp = (currentParentMemberExpression: any) => {
     if (currentParentMemberExpression.property.type !== 'Identifier') {
       debug(
         'we cant deal with non identifiers. found %s',

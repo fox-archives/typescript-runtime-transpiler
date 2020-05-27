@@ -3,7 +3,7 @@ import type { Primitive } from 't'
 export class Mod {
   node: any
 
-  constructor(node) {
+  constructor(node: any) {
     this.node = node
   }
 

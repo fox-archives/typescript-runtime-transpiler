@@ -7,7 +7,12 @@
     "prettier/@typescript-eslint"
   ],
   "parserOptions": {
-    "project": ["./tsconfig.base.json", "./packages/**/tsconfig.json"],
+    "project": [
+      "./tsconfig.base.json",
+      "./packages/tsconfig.helper.json",
+      "./packages/tsconfig.plugin.json",
+      "./packages/**/tsconfig.json"
+    ],
     "projectFolderIgnoreList": ["/node_modules/", "/deno_modules/"]
   },
   "rules": {

@@ -7,7 +7,7 @@ import type {
 } from 'bt'
 import { debug } from './util/debug'
 
-export function callExpressionVisitor(path) {
+export function callExpressionVisitor(path: any) {
   const { node } = path
 
   // ex. could be ArrowFunctionExpression etc. Ensure it's not

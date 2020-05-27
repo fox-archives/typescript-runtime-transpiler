@@ -43,8 +43,8 @@ export function primitiveFromAst(ast: any): Primitive {
   } else if (t.isNullLiteral(ast)) {
     return null
   } else if (t.isObjectExpression(ast)) {
-    const objectExpressionString = generate(ast)
-    return JSON.parse(objectExpressionString)
+    const generatorResult = generate(ast)
+    return JSON.parse(generatorResult.code)
   } else if (t.isRegExpLiteral(ast)) {
     return ast.pattern
   } else if (
